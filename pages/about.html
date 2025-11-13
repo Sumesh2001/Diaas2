@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Diaas</title>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/services.css">
+  <script src="../assets/js/search.js" defer></script>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-12">
+        <div class="image-2xl"><a href="../index.html"><img src="../assets/images/Diaas_Logo.png" class="h-10 object-scale-down"></a></div>
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="../index.html#services" class="text-gray-700 hover:text-orange-600 transition">Services</a></li>
+          <li><a href="about.html" class="text-gray-700 hover:text-orange-600 transition">About</a></li>
+          <li><a href="case-studies.html" class="text-gray-700 hover:text-orange-600 transition">Case Studies</a></li>
+          <li><a href="careers.html" class="text-gray-700 hover:text-orange-600 transition">Careers</a></li>
+        </ul>
+      </div>
+      <div class="hidden md:flex items-center space-x-3">
+        <div id="searchBar" class="hidden flex items-center bg-gray-100 rounded-full px-4 py-2 w-64">
+          <input type="text" id="searchInput" placeholder="Search..." class="bg-transparent outline-none w-full text-gray-700" onkeypress="performSearch(event)">
+          <button onclick="closeSearch()" class="text-gray-500 hover:text-gray-700 ml-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <button onclick="toggleSearch()" class="text-gray-700 hover:text-orange-600 transition p-2 hover:bg-gray-100 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
+          </svg>
+        </button>
+        <a href="../index.html#contact" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold">
+          Contact us
+        </a>
+      </div>
+      <button class="md:hidden" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+      <ul class="space-y-3 mb-4">
+        <li><a href="../index.html#services" class="text-gray-700 hover:text-orange-600 transition block">Services</a></li>
+        <li><a href="about.html" class="text-gray-700 hover:text-orange-600 transition block">About</a></li>
+        <li><a href="case-studies.html" class="text-gray-700 hover:text-orange-600 transition block">Case Studies</a></li>
+        <li><a href="careers.html" class="text-gray-700 hover:text-orange-600 transition block">Careers</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <input type="text" id="mobileSearchInput" placeholder="Search..." class="flex-1 bg-gray-100 border-none rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-orange-500">
+        <button onclick="performMobileSearch()" class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
+          </svg>
+        </button>
+      </div>
+      <a href="../index.html#contact" class="block mt-4 w-full bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold text-center">
+        Contact us
+      </a>
+    </div>
+    
+    <!-- Search Results Dropdown -->
+    <div id="searchResults" class="hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg max-h-96 overflow-y-auto">
+      <div class="max-w-7xl mx-auto px-6 py-4"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- About Section -->
+<section class="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Hero -->
+    <div class="text-center mb-12 sm:mb-16 md:mb-20">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-3 sm:mb-4">About <span class="text-orange-600">Diaas</span></h1>
+      <p class="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-4">Transforming enterprises through innovative security and digital solutions backed by decades of industry expertise</p>
+    </div>
+
+    <!-- Company Section -->
+    <div class="mb-12 sm:mb-16 md:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
+        <div>
+          <span class="inline-block px-3 sm:px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Our Company</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">Best-in-Class Consultants</h2>
+          <p class="text-base sm:text-lg text-gray-600 mb-3 sm:mb-4">
+            Diaas is an ensemble consortium of technology consultants focused on client service and solution delivery. We bring the pivotal tenets of consulting and problem-solving into our delivery methodologies and are driven by our core values of trust, integrity, empathy and inclusion.
+          </p>
+          <p class="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6">
+            We exclusively onboard, train and nurture diverse talent into our workforce, adding supplementary values and character to all our partnerships and engagements. With over 30 years of combined expertise and a presence across 20 global offices, we help enterprises realize their digital identity and cybersecurity goals.
+          </p>
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 pt-4 sm:pt-6">
+            <div>
+              <div class="text-2xl sm:text-3xl font-bold text-orange-600">1000+</div>
+              <p class="text-gray-600 text-xs sm:text-sm">Projects Delivered</p>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-bold text-orange-600">120+</div>
+              <p class="text-gray-600 text-xs sm:text-sm">Active Clients</p>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-bold text-orange-600">20</div>
+              <p class="text-gray-600 text-xs sm:text-sm">Global Offices</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 sm:p-8 h-64 sm:h-80 md:h-96 flex items-center justify-center border-2 border-orange-100">
+          <div class="text-center">
+            <svg class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-orange-600 mx-auto mb-3 sm:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <p class="text-gray-500 text-sm sm:text-base px-4">Ensemble Consortium of Technology Consultants</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vision Section -->
+    <div class="mb-12 sm:mb-16 md:mb-24 bg-gradient-to-br from-gray-50 to-orange-50 rounded-2xl p-6 sm:p-8 md:p-12">
+      <div class="max-w-3xl mx-auto text-center">
+        <span class="inline-block px-3 sm:px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Our Vision</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 md:mb-8">Empowering Enterprises Through Digital Identity & Security</h2>
+        <p class="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed">
+          We envision a world where organizations of all sizes can confidently leverage technology to innovate and grow, protected by robust identity and access management frameworks. Working with Diaas automatically helps you realize your enterprise Diversity, Equity, Inclusion and Belonging (DEIB) vision and goals.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-10 md:mt-12">
+          <div class="bg-white rounded-xl p-4 sm:p-6 shadow-md">
+            <div class="text-orange-600 text-3xl sm:text-4xl mb-3 sm:mb-4">🔐</div>
+            <h3 class="font-bold text-gray-900 mb-2 text-sm sm:text-base">Digital Identity Excellence</h3>
+            <p class="text-gray-600 text-xs sm:text-sm">Specializing in Identity Lifecycle Management, Access Governance, and Compliance Automation</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 sm:p-6 shadow-md">
+            <div class="text-orange-600 text-3xl sm:text-4xl mb-3 sm:mb-4">👥</div>
+            <h3 class="font-bold text-gray-900 mb-2 text-sm sm:text-base">DEIB Commitment</h3>
+            <p class="text-gray-600 text-xs sm:text-sm">Built on Diversity, Equity, Inclusion and Belonging - diverse talent driving excellence</p>
+          </div>
+          <div class="bg-white rounded-xl p-4 sm:p-6 shadow-md">
+            <div class="text-orange-600 text-3xl sm:text-4xl mb-3 sm:mb-4">✨</div>
+            <h3 class="font-bold text-gray-900 mb-2 text-sm sm:text-base">Collective Purpose</h3>
+            <p class="text-gray-600 text-xs sm:text-sm">Work driven by collective spirit and sense of ownership translates to excellence</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Values Section -->
+    <div class="mb-12 sm:mb-16 md:mb-24">
+      <div class="text-center mb-8 sm:mb-12 md:mb-16">
+        <span class="inline-block px-3 sm:px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Core Values</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 px-4">Driven By Trust, Integrity, Empathy & Inclusion</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
+        <!-- Trust & Integrity -->
+        <div class="bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition border-l-4 border-orange-600">
+          <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🤝</div>
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Trust & Integrity</h3>
+          <p class="text-gray-600 text-sm sm:text-base">We build lasting relationships through transparency, honesty, and unwavering commitment to our clients' success. Trust is the foundation of everything we do.</p>
+        </div>
+        
+        <!-- Empathy -->
+        <div class="bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition border-l-4 border-indigo-600">
+          <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">❤️</div>
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Empathy</h3>
+          <p class="text-gray-600 text-sm sm:text-base">We understand our clients' challenges and work with genuine care and compassion. Empathy drives our approach to problem-solving and client relationships.</p>
+        </div>
+        
+        <!-- Inclusion -->
+        <div class="bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition border-l-4 border-purple-600">
+          <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">🌍</div>
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Inclusion & Belonging</h3>
+          <p class="text-gray-600 text-sm sm:text-base">Everyone thrives on the collective spirit of inclusion and belonging at work. We celebrate diversity and foster an environment where all voices are heard.</p>
+        </div>
+        
+        <!-- Excellence -->
+        <div class="bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition border-l-4 border-cyan-600">
+          <div class="text-3xl sm:text-4xl mb-3 sm:mb-4">⭐</div>
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">Professional Excellence</h3>
+          <p class="text-gray-600 text-sm sm:text-base">We pursue the highest standards in solution delivery, consulting, and client service. Excellence is non-negotiable in all our engagements.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Working at Diaas Section -->
+    <div class="bg-gradient-to-br from-orange-900 to-indigo-900 text-white rounded-2xl p-6 sm:p-8 md:p-12 mb-12 sm:mb-16 md:mb-24">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
+        <div>
+          <span class="inline-block px-3 sm:px-4 py-1 bg-orange-400 text-orange-900 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Join Our Team</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Working at Diaas</h2>
+          <p class="text-orange-100 mb-4 sm:mb-6 text-base sm:text-lg leading-relaxed">
+            Diaas is built on the basic premise of Diversity, Equity, Inclusion and Belonging (DEIB). As a boutique consulting firm, we consciously focus on hiring and developing diverse talent. Join us and grow in an environment where collective purpose drives professional excellence.
+          </p>
+          <div class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+            <div class="flex gap-2 sm:gap-3">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-orange-50 text-sm sm:text-base">Talent, Not Degrees</h3>
+                <p class="text-orange-200 text-xs sm:text-sm">Our selection process focuses on potential alone, not on pre-defined academic filters</p>
+              </div>
+            </div>
+            <div class="flex gap-2 sm:gap-3">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-orange-50 text-sm sm:text-base">Cultural Synergy</h3>
+                <p class="text-orange-200 text-xs sm:text-sm">We encourage cultural sensitivity and exchange; our team is enthusiastic about diversity</p>
+              </div>
+            </div>
+            <div class="flex gap-2 sm:gap-3">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-orange-50 text-sm sm:text-base">Commitment to Skill</h3>
+                <p class="text-orange-200 text-xs sm:text-sm">We invest in continuous learning and development, starting with our flagship internship program</p>
+              </div>
+            </div>
+            <div class="flex gap-2 sm:gap-3">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-orange-50 text-sm sm:text-base">Roles, Not Hierarchy</h3>
+                <p class="text-orange-200 text-xs sm:text-sm">We ensure belonging and ownership at work. We form a huddle, not a pyramid</p>
+              </div>
+            </div>
+            <div class="flex gap-2 sm:gap-3">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-orange-50 text-sm sm:text-base">Driven by Purpose</h3>
+                <p class="text-orange-200 text-xs sm:text-sm">While growth is important, we don't rely only on profit margins. Purpose drives our decisions</p>
+              </div>
+            </div>
+            <div class="flex gap-2 sm:gap-3">
+              <svg class="w-5 h-5 sm:w-6 sm:h-6 text-orange-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              <div>
+                <h3 class="font-semibold text-orange-50 text-sm sm:text-base">Well-Being & Empathy</h3>
+                <p class="text-orange-200 text-xs sm:text-sm">Work is not life, but work can surely be lively. We foster well-being and empathy at Diaas</p>
+              </div>
+            </div>
+          </div>
+          <a href="careers.html" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 sm:py-3 px-6 sm:px-8 rounded-lg transition transform hover:scale-[1.05] text-sm sm:text-base">
+            Explore Careers →
+          </a>
+        </div>
+        <div class="bg-orange-800 rounded-2xl p-6 sm:p-8 h-48 sm:h-64 md:h-96 flex items-center justify-center">
+          <div class="text-center">
+            <svg class="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-orange-400 mx-auto mb-3 sm:mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+            <p class="text-orange-300 text-sm sm:text-base">Build Your Career at Diaas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Leadership Section -->
+    <div class="mb-12 sm:mb-16 md:mb-24">
+      <div class="text-center mb-8 sm:mb-12 md:mb-16">
+        <span class="inline-block px-3 sm:px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Leadership Team</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Meet Our Leaders</h2>
+        <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">Visionary leaders driving innovation and excellence at Diaas</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16 md:mb-20">
+        <!-- Samarjit Acharjee -->
+        <div class="bg-gradient-to-br from-purple-100 via-orange-100 to-indigo-100 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <!-- Content -->
+            <div class="p-6 sm:p-8 md:p-10 flex flex-col justify-center order-2 md:order-1">
+              <span class="text-purple-600 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 sm:mb-3">Meet</span>
+              <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-1">Samarjit</h3>
+              <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">Acharjee</h3>
+              <p class="text-base sm:text-lg text-gray-700 font-semibold mb-4 sm:mb-6">Managing Director</p>
+              
+              <p class="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                Samarjit is a Cyber Veteran with 21 years of Consulting and Leadership experience. He is responsible for Business Growth and Capability Building at Diaas, driving strategic initiatives and fostering innovation across the organization.
+              </p>
+
+              <a href="#" class="text-red-500 font-semibold hover:text-red-700 flex items-center gap-2 group text-sm sm:text-base">
+                Contact Samarjit Acharjee <span class="group-hover:translate-x-1 transition">→</span>
+              </a>
+            </div>
+
+            <!-- Photo -->
+            <div class="order-1 md:order-2 p-4 sm:p-6 md:p-8 flex items-center justify-center">
+              <div class="w-full max-w-xs">
+                <div class="bg-white rounded-2xl p-2 sm:p-3 shadow-xl">
+                  <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                    <span class="text-gray-400 text-xs sm:text-sm text-center px-4">[Add Samarjit's Photo]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monalisa Pal -->
+        <div class="bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100 rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+            <!-- Content -->
+            <div class="p-6 sm:p-8 md:p-10 flex flex-col justify-center order-2 md:order-1">
+              <span class="text-pink-600 text-xs sm:text-sm font-semibold uppercase tracking-wider mb-2 sm:mb-3">Meet</span>
+              <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-1">Monalisa</h3>
+              <h3 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">Pal</h3>
+              <p class="text-base sm:text-lg text-gray-700 font-semibold mb-4 sm:mb-6">Managing Director</p>
+              
+              <p class="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
+                Monalisa has been an acclaimed TV and Stage actor in Kolkata for over 17 years. She is in charge of HR, Partnerships and Operations at Diaas, bringing creativity and strategic thinking to organizational development.
+              </p>
+
+              <a href="#" class="text-red-500 font-semibold hover:text-red-700 flex items-center gap-2 group text-sm sm:text-base">
+                Contact Monalisa Pal <span class="group-hover:translate-x-1 transition">→</span>
+              </a>
+            </div>
+
+            <!-- Photo -->
+            <div class="order-1 md:order-2 p-4 sm:p-6 md:p-8 flex items-center justify-center">
+              <div class="w-full max-w-xs">
+                <div class="bg-white rounded-2xl p-2 sm:p-3 shadow-xl">
+                  <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                    <span class="text-gray-400 text-xs sm:text-sm text-center px-4">[Add Monalisa's Photo]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Team Testimonials Slider Section -->
+    <div class="mb-12 sm:mb-16 md:mb-24 bg-gradient-to-br from-gray-50 to-orange-50 py-8 sm:py-12 md:py-16 rounded-3xl">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8 sm:mb-12 md:mb-16">
+          <span class="inline-block px-3 sm:px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-xs sm:text-sm font-semibold mb-3 sm:mb-4">Team Voices</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4\">Working at Diaas</h2>
+          <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">Hear from our talented team members about their experiences, growth, and passion for innovation</p>
+        </div>
+
+        <!-- Testimonial Slider Container -->
+        <div class="relative">
+          <div class="testimonial-slider overflow-hidden">
+            <div class="testimonial-track flex transition-transform duration-500 ease-in-out">
+              
+              <!-- Testimonial 1 - Doyel Basu -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-purple-100 via-orange-100 to-indigo-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-purple-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Doyel Basu</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Senior Consultant, IAM</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Working at Diaas has been transformative. With 6+ years in cybersecurity, I've specialized in IAM and now lead complex IGA, SSO, and PAM engagements. The emphasis on practical expertise and continuous skill development is remarkable. The collaborative culture enables us to deliver cutting-edge solutions while growing professionally."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-purple-200 to-orange-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 2 - Neha Jadoun -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-indigo-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Neha Jadoun</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Senior Consultant, Operations & QA</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "With 6+ years spanning Operations, QA, Business Analysis, and Project Management, Diaas gave me the platform to wear multiple hats effectively. The company's commitment to skill development is evident through certifications and hands-on project experience. My ISC2 CC, Okta, and OneLogin certifications were all supported here."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-indigo-200 to-purple-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 3 - Vinay Joshi -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-cyan-100 via-orange-100 to-indigo-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-cyan-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Vinay Joshi</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Senior Consultant, IAM Managed Services</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "As a CompTIA Security+ certified professional with 5+ years of experience, I lead IAM Managed Services projects at Diaas. The firm's focus on 'Roles, Not Hierarchy' makes a real difference. I'm empowered to make decisions, mentor others, and drive technical excellence. It's a genuine partnership toward collective success."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-cyan-200 to-orange-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 4 - Gayatri Salokhe -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-green-100 via-cyan-100 to-orange-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-green-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Gayatri Salokhe</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Consultant, Identity Security & ML</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "With 3+ years in Identity Security, Data Science, and Machine Learning, I find Diaas incredibly supportive of technical growth. The team values diverse skill sets and encourages us to apply them in innovative ways. Working on IGA and SSO implementations while exploring ML applications has been challenging and rewarding."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-green-200 to-cyan-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 5 - Souvik Ghosh -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-orange-100 via-red-100 to-pink-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-orange-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Souvik Ghosh</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Consultant, SSO & IGA Tools</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "As an Okta Certified Professional with 2 years of cybersecurity experience, Diaas has been instrumental in my career progression. The hands-on experience with SSO and IGA implementations, combined with mentorship from senior consultants, accelerated my expertise. The well-being culture ensures work is fulfilling."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-orange-200 to-red-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 6 - Sumesh Shaji -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-pink-100 via-purple-100 to-indigo-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-pink-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Sumesh Shaji</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Associate Consultant, Cybersecurity</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Fresh graduate, no prior experience needed—Diaas proved that promise true. Coming in with interest in cybersecurity and full-stack development, I found an organization that genuinely invests in talent development. The intern-to-hire program and mentorship structure have been game-changing. Potential truly becomes expertise here."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-pink-200 to-purple-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 7 - Team Member 7 -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-slate-100 via-gray-100 to-orange-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-slate-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Team Member</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Consultant Position</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Add your team member's testimonial about working at Diaas. Share their experience, growth journey, and what makes working here special. Include their expertise, achievements, and how the company culture has impacted their professional development."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-slate-200 to-gray-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 8 - Team Member 8 -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-amber-100 via-yellow-100 to-orange-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-amber-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Team Member</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Consultant Position</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Add your team member's testimonial about working at Diaas. Share their experience, growth journey, and what makes working here special. Include their expertise, achievements, and how the company culture has impacted their professional development."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-amber-200 to-yellow-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Testimonial 9 - Team Member 9 -->
+              <div class="testimonial-slide min-w-full px-4">
+                <div class="bg-gradient-to-br from-teal-100 via-cyan-100 to-orange-100 rounded-3xl overflow-hidden shadow-xl max-w-4xl mx-auto">
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="p-10 flex flex-col justify-center">
+                      <span class="text-teal-600 text-sm font-semibold uppercase tracking-wider mb-3">Meet</span>
+                      <h3 class="text-4xl font-bold text-gray-900 mb-1">Team Member</h3>
+                      <p class="text-lg text-gray-700 font-semibold mb-6">Consultant Position</p>
+                      
+                      <p class="text-gray-700 leading-relaxed mb-6 italic">
+                        "Add your team member's testimonial about working at Diaas. Share their experience, growth journey, and what makes working here special. Include their expertise, achievements, and how the company culture has impacted their professional development."
+                      </p>
+
+                      <div class="flex items-center text-yellow-400 mb-4">
+                        <span>⭐⭐⭐⭐⭐</span>
+                      </div>
+                    </div>
+                    <div class="p-8 flex items-center justify-center bg-gradient-to-br from-teal-200 to-cyan-200">
+                      <div class="w-full max-w-xs">
+                        <div class="bg-white rounded-2xl p-3 shadow-xl">
+                          <div class="bg-gray-200 rounded-xl aspect-square flex items-center justify-center overflow-hidden">
+                            <span class="text-gray-400 text-sm text-center px-4">[Add Photo]</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Slider Navigation -->
+          <button id="prevTestimonial" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-4 shadow-lg hover:bg-gray-100 transition z-10">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button id="nextTestimonial" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-4 shadow-lg hover:bg-gray-100 transition z-10">
+            <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </button>
+
+          <!-- Slider Dots -->
+          <div class="flex justify-center gap-2 mt-8">
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-orange-600 transition" data-index="0"></button>
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition" data-index="1"></button>
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition" data-index="2"></button>
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition" data-index="3"></button>
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition" data-index="4"></button>
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition" data-index="5"></button>
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition" data-index="6"></button>
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition" data-index="7"></button>
+            <button class="testimonial-dot w-3 h-3 rounded-full bg-gray-300 transition" data-index="8"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Testimonial Slider JavaScript
+      let currentTestimonial = 0;
+      const testimonialTrack = document.querySelector('.testimonial-track');
+      const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+      const totalTestimonials = testimonialSlides.length;
+      const prevBtn = document.getElementById('prevTestimonial');
+      const nextBtn = document.getElementById('nextTestimonial');
+      const dots = document.querySelectorAll('.testimonial-dot');
+
+      function updateTestimonialSlider() {
+        testimonialTrack.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+        
+        // Update dots
+        dots.forEach((dot, index) => {
+          if (index === currentTestimonial) {
+            dot.classList.remove('bg-gray-300');
+            dot.classList.add('bg-orange-600');
+          } else {
+            dot.classList.remove('bg-orange-600');
+            dot.classList.add('bg-gray-300');
+          }
+        });
+      }
+
+      prevBtn.addEventListener('click', () => {
+        currentTestimonial = (currentTestimonial - 1 + totalTestimonials) % totalTestimonials;
+        updateTestimonialSlider();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+        updateTestimonialSlider();
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentTestimonial = index;
+          updateTestimonialSlider();
+        });
+      });
+
+      // Auto-play slider
+      setInterval(() => {
+        currentTestimonial = (currentTestimonial + 1) % totalTestimonials;
+        updateTestimonialSlider();
+      }, 5000);
+    </script>
+         
+
+      <!-- Additional Team Members Section -->
+      <div class="bg-gradient-to-r from-gray-50 to-orange-50 rounded-2xl p-12 text-center">
+        <h3 class="text-3xl font-bold text-gray-900 mb-6">Join Our Amazing Team</h3>
+        <p class="text-gray-700 text-lg mb-8 max-w-2xl mx-auto">
+          We have a diverse team of professionals dedicated to excellence. Ready to join us and make an impact?
+        </p>
+        <a href="careers.html" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-[1.05]">
+          Explore Career Opportunities →
+        </a>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center bg-gradient-to-r from-gray-50 to-orange-50 rounded-2xl p-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Ready to Partner with Us?</h2>
+      <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Let's discuss how Diaas can help you achieve your security and digital transformation goals.</p>
+      <a href="../index.html#contact" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-[1.05]">
+        Get in Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<!--Footer-->
+<footer class="bg-orange-900 text-white py-8 sm:py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Footer Content Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-6 sm:mb-8 lg:mb-12">
+      <!-- Brand Section -->
+      <div class="col-span-2 md:col-span-1">
+        <div class="mb-4 sm:mb-6">
+          <img src="../assets/images/Diaas_Logo white.png" alt="Diaas Logo" class="h-8 sm:h-10 object-scale-down">
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Your trusted partner for guaranteed software delivery. Combining advanced technology and decades of industry insight.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Quick Links</h4>
+        <ul class="space-y-2 sm:space-y-3">
+          <li><a href="../index.html" class="text-gray-300 hover:text-white transition text-sm">Home</a></li>
+          <li><a href="about.html" class="text-gray-300 hover:text-white transition text-sm">About Us</a></li>
+          <li><a href="case-studies.html" class="text-gray-300 hover:text-white transition text-sm">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Services</h4>
+        <ul class="space-y-2 sm:space-y-3">
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">IAM Solutions</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cybersecurity</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cloud Security</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Consulting</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Connect With Us</h4>
+        <div>
+          <p class="text-gray-300 text-xs sm:text-sm mb-3">
+            <span class="font-semibold">Email:</span><br>
+            <a href="mailto:info@diaas.com" class="hover:text-white transition">info@diaas.com</a>
+          </p>
+          <div id="socialIcons" class="flex flex-row items-center gap-3 sm:gap-4">
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="LinkedIn">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.469v6.766z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="Twitter">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="Facebook">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-orange-700 my-4 sm:my-6 lg:my-8"></div>
+
+    <!-- Bottom Section -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-orange-100 text-xs sm:text-sm">
+      <p>&copy; 2025 Diaas. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-6 mt-3 md:mt-0">
+        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+        <a href="#" class="hover:text-white transition">Terms of Service</a>
+        <a href="#" class="hover:text-white transition">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
