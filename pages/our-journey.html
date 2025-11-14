@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Journey - Diaas</title>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/services.css">
+  <script src="../assets/js/search.js" defer></script>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-12">
+        <div class="image-2xl"><a href="../index.html"><img src="../assets/images/Diaas_Logo.png" class="h-10 object-scale-down"></a></div>
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="../index.html#services" class="text-gray-700 hover:text-orange-600 transition">Services</a></li>
+          <li><a href="about.html" class="text-gray-700 hover:text-orange-600 transition">About</a></li>
+          <li><a href="case-studies.html" class="text-gray-700 hover:text-orange-600 transition">Case Studies</a></li>
+          <li><a href="careers.html" class="text-gray-700 hover:text-orange-600 transition">Careers</a></li>
+          <li><a href="our-journey.html" class="text-gray-700 hover:text-orange-600 transition">Our Journey</a></li>
+        </ul>
+      </div>
+      <div class="hidden md:flex items-center space-x-3">
+        <div id="searchBar" class="hidden flex items-center bg-gray-100 rounded-full px-4 py-2 w-64">
+          <input type="text" id="searchInput" placeholder="Search..." class="bg-transparent outline-none w-full text-gray-700" onkeypress="performSearch(event)">
+          <button onclick="closeSearch()" class="text-gray-500 hover:text-gray-700 ml-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <button onclick="toggleSearch()" class="text-gray-700 hover:text-orange-600 transition p-2 hover:bg-gray-100 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
+          </svg>
+        </button>
+        <a href="../index.html#contact" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold">
+          Contact us
+        </a>
+      </div>
+      <button class="md:hidden" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+      <ul class="space-y-3 mb-4">
+        <li><a href="../index.html#services" class="text-gray-700 hover:text-orange-600 transition block">Services</a></li>
+        <li><a href="about.html" class="text-gray-700 hover:text-orange-600 transition block">About</a></li>
+        <li><a href="case-studies.html" class="text-gray-700 hover:text-orange-600 transition block">Case Studies</a></li>
+        <li><a href="careers.html" class="text-gray-700 hover:text-orange-600 transition block">Careers</a></li>
+        <li><a href="our-journey.html" class="text-gray-700 hover:text-orange-600 transition block">Our Journey</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <input type="text" id="mobileSearchInput" placeholder="Search..." class="flex-1 bg-gray-100 border-none rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-orange-500">
+        <button onclick="performMobileSearch()" class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
+          </svg>
+        </button>
+      </div>
+      <a href="../index.html#contact" class="block mt-4 w-full bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold text-center">
+        Contact us
+      </a>
+    </div>
+    
+    <!-- Search Results Dropdown -->
+    <div id="searchResults" class="hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg max-h-96 overflow-y-auto">
+      <div class="max-w-7xl mx-auto px-6 py-4"></div>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-orange-50 to-orange-100 pt-32 pb-20">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+        Our Journey
+      </h1>
+      <p class="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+        Every milestone tells a story. Explore the moments that shaped who we are today.
+      </p>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-5xl mx-auto">
+        <!-- Timeline Item 1 -->
+        <div class="relative pl-8 sm:pl-12 pb-12 sm:pb-16 border-l-4 border-orange-500">
+          <div class="absolute left-0 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-rocket text-white text-sm sm:text-base"></i>
+          </div>
+          <div class="bg-gradient-to-br from-orange-50 to-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition">
+            <div class="text-orange-600 font-bold text-sm sm:text-base mb-2">2020</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">The Beginning</h3>
+            <p class="text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+              Founded with a vision to transform businesses through data-driven insights and innovative solutions. Started with a small team of passionate consultants.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <img src="../images/journey-1.jpg" alt="Company founding" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop'">
+              <img src="../images/journey-2.jpg" alt="First office" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&auto=format&fit=crop'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative pl-8 sm:pl-12 pb-12 sm:pb-16 border-l-4 border-orange-500">
+          <div class="absolute left-0 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-trophy text-white text-sm sm:text-base"></i>
+          </div>
+          <div class="bg-gradient-to-br from-orange-50 to-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition">
+            <div class="text-orange-600 font-bold text-sm sm:text-base mb-2">2021</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">First Major Achievement</h3>
+            <p class="text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+              Successfully completed 50+ projects and earned industry recognition for excellence in data analytics and business transformation.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <img src="../images/journey-3.jpg" alt="Award ceremony" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop'">
+              <img src="../images/journey-4.jpg" alt="Team celebration" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1528605105345-5344ea20e269?w=800&auto=format&fit=crop'">
+              <img src="../images/journey-5.jpg" alt="Project success" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="relative pl-8 sm:pl-12 pb-12 sm:pb-16 border-l-4 border-orange-500">
+          <div class="absolute left-0 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-users text-white text-sm sm:text-base"></i>
+          </div>
+          <div class="bg-gradient-to-br from-orange-50 to-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition">
+            <div class="text-orange-600 font-bold text-sm sm:text-base mb-2">2022</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Team Expansion</h3>
+            <p class="text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+              Grew our team to 100+ talented professionals across multiple domains. Opened new offices and expanded our service offerings.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <img src="../images/journey-6.jpg" alt="Team expansion" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&auto=format&fit=crop'">
+              <img src="../images/journey-7.jpg" alt="New office" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&auto=format&fit=crop'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 4 -->
+        <div class="relative pl-8 sm:pl-12 pb-12 sm:pb-16 border-l-4 border-orange-500">
+          <div class="absolute left-0 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-globe text-white text-sm sm:text-base"></i>
+          </div>
+          <div class="bg-gradient-to-br from-orange-50 to-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition">
+            <div class="text-orange-600 font-bold text-sm sm:text-base mb-2">2023</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Global Reach</h3>
+            <p class="text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+              Partnered with international clients and established presence in multiple countries. Delivered transformative solutions across continents.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <img src="../images/journey-8.jpg" alt="Global partnership" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&auto=format&fit=crop'">
+              <img src="../images/journey-9.jpg" alt="International conference" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 5 -->
+        <div class="relative pl-8 sm:pl-12 pb-12 sm:pb-16 border-l-4 border-orange-500">
+          <div class="absolute left-0 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-lightbulb text-white text-sm sm:text-base"></i>
+          </div>
+          <div class="bg-gradient-to-br from-orange-50 to-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition">
+            <div class="text-orange-600 font-bold text-sm sm:text-base mb-2">2024</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Innovation Hub</h3>
+            <p class="text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+              Launched our Innovation Lab focused on AI, Machine Learning, and emerging technologies. Developed proprietary tools and frameworks.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <img src="../images/journey-10.jpg" alt="Innovation lab" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&auto=format&fit=crop'">
+              <img src="../images/journey-11.jpg" alt="Tech workshop" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1535223289827-42f1e9919769?w=800&auto=format&fit=crop'">
+              <img src="../images/journey-12.jpg" alt="Product launch" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&auto=format&fit=crop'">
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Item 6 -->
+        <div class="relative pl-8 sm:pl-12">
+          <div class="absolute left-0 -translate-x-1/2 w-8 h-8 sm:w-10 sm:h-10 bg-orange-500 rounded-full flex items-center justify-center">
+            <i class="fas fa-star text-white text-sm sm:text-base"></i>
+          </div>
+          <div class="bg-gradient-to-br from-orange-50 to-white p-6 sm:p-8 rounded-lg shadow-md hover:shadow-xl transition">
+            <div class="text-orange-600 font-bold text-sm sm:text-base mb-2">2025</div>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">Leading the Future</h3>
+            <p class="text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+              Recognized as industry leaders in digital transformation. Serving Fortune 500 companies and driving innovation across industries.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <img src="../images/journey-13.jpg" alt="Industry leadership" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop'">
+              <img src="../images/journey-14.jpg" alt="Future vision" class="w-full h-48 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?w=800&auto=format&fit=crop'">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Milestones Stats Section -->
+  <section class="py-20 bg-gradient-to-br from-orange-500 to-orange-600">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center text-white mb-16">Our Impact</h2>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="text-5xl font-bold text-white mb-3">500+</div>
+          <div class="text-orange-100 text-base">Projects Completed</div>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold text-white mb-3">150+</div>
+          <div class="text-orange-100 text-base">Happy Clients</div>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold text-white mb-3">100+</div>
+          <div class="text-orange-100 text-base">Team Members</div>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold text-white mb-3">20+</div>
+          <div class="text-orange-100 text-base">Awards Won</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Gallery Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">Memorable Moments</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Celebrating the moments that bring us together and make our journey special.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Event 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="../images/event-1.jpg" alt="Annual team retreat" class="w-full h-56 object-cover" onerror="this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&auto=format&fit=crop'">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Annual Team Retreat</h3>
+            <p class="text-gray-600 text-sm mb-3">December 2024</p>
+            <p class="text-gray-700">
+              An incredible bonding experience in the mountains, strengthening our team spirit.
+            </p>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="../images/event-2.jpg" alt="Innovation summit" class="w-full h-56 object-cover" onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop'">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Innovation Summit</h3>
+            <p class="text-gray-600 text-sm mb-3">September 2024</p>
+            <p class="text-gray-700">
+              Showcasing cutting-edge solutions and connecting with industry pioneers.
+            </p>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="../images/event-3.jpg" alt="Client appreciation event" class="w-full h-56 object-cover" onerror="this.src='https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&auto=format&fit=crop'">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Client Appreciation</h3>
+            <p class="text-gray-600 text-sm mb-3">June 2024</p>
+            <p class="text-gray-700">
+              Celebrating our partnerships and expressing gratitude to our valued clients.
+            </p>
+          </div>
+        </div>
+
+        <!-- Event 4 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="../images/event-4.jpg" alt="Hackathon" class="w-full h-56 object-cover" onerror="this.src='https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&auto=format&fit=crop'">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Internal Hackathon</h3>
+            <p class="text-gray-600 text-sm mb-3">March 2024</p>
+            <p class="text-gray-700">
+              48 hours of creativity, innovation, and breakthrough ideas from our talented team.
+            </p>
+          </div>
+        </div>
+
+        <!-- Event 5 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="../images/event-5.jpg" alt="Charity drive" class="w-full h-56 object-cover" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&auto=format&fit=crop'">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Community Giveback</h3>
+            <p class="text-gray-600 text-sm mb-3">January 2024</p>
+            <p class="text-gray-700">
+              Making a difference in our community through education and technology initiatives.
+            </p>
+          </div>
+        </div>
+
+        <!-- Event 6 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition">
+          <img src="../images/event-6.jpg" alt="Tech talk" class="w-full h-56 object-cover" onerror="this.src='https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&auto=format&fit=crop'">
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Tech Talk Series</h3>
+            <p class="text-gray-600 text-sm mb-3">Ongoing</p>
+            <p class="text-gray-700">
+              Monthly sessions where team members share knowledge and learn from industry experts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold text-gray-900 mb-6">Be Part of Our Story</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
+        Join us as we continue to innovate, grow, and make a lasting impact.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="careers.html" class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-orange-600 hover:to-orange-700 transition shadow-lg hover:shadow-xl">
+          Join Our Team
+        </a>
+        <a href="../index.html#contact" class="inline-block bg-white text-orange-600 border-2 border-orange-500 px-8 py-4 rounded-lg font-semibold hover:bg-orange-50 transition">
+          Partner With Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!--Footer-->
+  <footer class="bg-orange-900 text-white py-12 lg:py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Footer Content Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-8 lg:mb-12">
+        <!-- Brand Section -->
+        <div class="col-span-2 md:col-span-1">
+          <div class="mb-6">
+            <img src="../assets/images/Diaas_Logo white.png" alt="Diaas Logo" class="h-10 object-scale-down">
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            Your trusted partner for guaranteed software delivery. Combining advanced technology and decades of industry insight.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-bold mb-6 text-white">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="../index.html" class="text-gray-300 hover:text-white transition text-sm">Home</a></li>
+            <li><a href="about.html" class="text-gray-300 hover:text-white transition text-sm">About Us</a></li>
+            <li><a href="case-studies.html" class="text-gray-300 hover:text-white transition text-sm">Case Studies</a></li>
+            <li><a href="our-journey.html" class="text-gray-300 hover:text-white transition text-sm">Our Journey</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="text-lg font-bold mb-6 text-white">Services</h4>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">IAM Solutions</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cybersecurity</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cloud Security</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Consulting</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Social -->
+        <div>
+          <h4 class="text-lg font-bold mb-6 text-white">Connect With Us</h4>
+          <div>
+            <p class="text-gray-300 text-sm mb-3">
+              <span class="font-semibold">Email:</span><br>
+              <a href="mailto:info@diaas.com" class="hover:text-white transition">info@diaas.com</a>
+            </p>
+            <div id="socialIcons" class="flex flex-row items-center gap-4">
+              <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="LinkedIn">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.469v6.766z"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="Twitter">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/>
+                </svg>
+              </a>
+              <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="Facebook">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="border-t border-orange-700 my-8"></div>
+
+      <!-- Bottom Section -->
+      <div class="flex flex-col md:flex-row justify-between items-center text-orange-100 text-sm">
+        <p>&copy; 2025 Diaas. All rights reserved.</p>
+        <div class="flex flex-wrap justify-center gap-6 mt-3 md:mt-0">
+          <a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+          <a href="terms-of-service.html" class="hover:text-white transition">Terms of Service</a>
+          <a href="cookie-policy.html" class="hover:text-white transition">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
