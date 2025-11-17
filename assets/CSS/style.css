@@ -729,6 +729,7 @@ footer h4::before {
     font-size: 0.875rem;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: 1rem;
@@ -832,6 +833,7 @@ footer h4::before {
   .slide-desc {
     font-size: 0.8rem;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     margin-bottom: 0.75rem;
   }
 
