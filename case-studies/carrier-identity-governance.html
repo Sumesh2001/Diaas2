@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Identity Governance Dashboard for Carrier - Case Study | Diaas</title>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/search.js" defer></script>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+  <div class="max-w-7xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center space-x-12">
+        <div class="image-2xl"><a href="../index.html"><img src="../assets/images/Diaas_Logo.png" class="h-10 object-scale-down"></a></div>
+        <ul class="hidden md:flex space-x-8">
+          <li><a href="../index.html#services" class="text-gray-700 hover:text-orange-600 transition">Services</a></li>
+          <li><a href="../pages/about.html" class="text-gray-700 hover:text-orange-600 transition">About</a></li>
+          <li><a href="../pages/case-studies.html" class="text-gray-700 hover:text-orange-600 transition">Case Studies</a></li>
+          <li><a href="../pages/careers.html" class="text-gray-700 hover:text-orange-600 transition">Careers</a></li>
+        </ul>
+      </div>
+      <div class="hidden md:flex items-center space-x-3">
+        <div id="searchBar" class="hidden flex items-center bg-gray-100 rounded-full px-4 py-2 w-64">
+          <input type="text" id="searchInput" placeholder="Search..." class="bg-transparent outline-none w-full text-gray-700" onkeypress="performSearch(event)">
+          <button onclick="closeSearch()" class="text-gray-500 hover:text-gray-700 ml-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <button onclick="toggleSearch()" class="text-gray-700 hover:text-orange-600 transition p-2 hover:bg-gray-100 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
+          </svg>
+        </button>
+        <a href="../index.html#contact" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold">
+          Contact us
+        </a>
+      </div>
+      <button class="md:hidden" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+      <ul class="space-y-3 mb-4">
+        <li><a href="../index.html#services" class="text-gray-700 hover:text-orange-600 transition block">Services</a></li>
+        <li><a href="../pages/about.html" class="text-gray-700 hover:text-orange-600 transition block">About</a></li>
+        <li><a href="../pages/case-studies.html" class="text-gray-700 hover:text-orange-600 transition block">Case Studies</a></li>
+        <li><a href="../pages/careers.html" class="text-gray-700 hover:text-orange-600 transition block">Careers</a></li>
+      </ul>
+      <div class="flex items-center gap-3">
+        <input type="text" id="mobileSearchInput" placeholder="Search..." class="flex-1 bg-gray-100 border-none rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-orange-500">
+        <button onclick="performMobileSearch()" class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
+          </svg>
+        </button>
+      </div>
+      <a href="../index.html#contact" class="block mt-4 w-full bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold text-center">
+        Contact us
+      </a>
+    </div>
+    
+    <!-- Search Results Dropdown -->
+    <div id="searchResults" class="hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg max-h-96 overflow-y-auto">
+      <div class="max-w-7xl mx-auto px-6 py-4"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-16 bg-gradient-to-br from-blue-50 to-indigo-100">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-4xl">
+      <a href="../pages/case-studies.html" class="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6 font-semibold">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Case Studies
+      </a>
+      <span class="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">Manufacturing & Technology</span>
+      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Custom Identity Governance Dashboard for Carrier</h1>
+      <p class="text-xl text-gray-600 mb-8">Enhancing SailPoint IdentityIQ with custom orchestration to streamline access certification and reduce approval fatigue</p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Client</p>
+          <p class="font-bold text-gray-900">Carrier</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Industry</p>
+          <p class="font-bold text-gray-900">Manufacturing</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Solution</p>
+          <p class="font-bold text-gray-900">Identity Governance</p>
+        </div>
+        <div>
+          <p class="text-sm text-gray-500 mb-1">Platform</p>
+          <p class="font-bold text-gray-900">SailPoint IIQ</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Overview Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
+        <p class="text-gray-600 mb-4">
+          Carrier, a global leader in manufacturing and technology, sought to enhance its existing Identity Governance and Administration (IGA) solution powered by SailPoint IdentityIQ. The primary objective was to introduce additional functionality that would significantly improve the end-user experience during Access Certification campaigns without compromising security or compliance.
+        </p>
+        <p class="text-gray-600">
+          The project focused on streamlining certification workflows, reducing approval fatigue, and maintaining audit readiness while ensuring seamless integration with the existing SailPoint ecosystem.
+        </p>
+      </div>
+      
+      <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-8">
+        <h3 class="text-xl font-bold text-gray-900 mb-6">Key Highlights</h3>
+        <div class="space-y-4">
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <p class="text-gray-700">Custom orchestration layer integrated with SailPoint IIQ</p>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <p class="text-gray-700">Bulk approval capabilities for unchanged entitlements</p>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <p class="text-gray-700">Enterprise SSO for secure reviewer access</p>
+          </div>
+          <div class="flex items-start">
+            <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <p class="text-gray-700">Scalable architecture for future ISC migration</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Challenges Section -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Challenges</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-xl p-8 shadow-sm">
+        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Limited Out-of-the-Box Features</h3>
+        <p class="text-gray-600">SailPoint IIQ's standard capabilities did not fully align with Carrier's vision for an enhanced user experience and streamlined certification process.</p>
+      </div>
+      
+      <div class="bg-white rounded-xl p-8 shadow-sm">
+        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Approval Fatigue & Rubberstamping</h3>
+        <p class="text-gray-600">Reviewers faced overwhelming certification campaigns, leading to approval fatigue and increased risk of rubberstamping without proper review.</p>
+      </div>
+      
+      <div class="bg-white rounded-xl p-8 shadow-sm">
+        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Secure Login Requirements</h3>
+        <p class="text-gray-600">Need for robust, enterprise-grade secure authentication for reviewers and managers accessing the certification platform.</p>
+      </div>
+      
+      <div class="bg-white rounded-xl p-8 shadow-sm">
+        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Granular Review Requirements</h3>
+        <p class="text-gray-600">Requirement for bulk approval of unchanged entitlements while enforcing individual, careful review for modified or new identities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Our Solution</h2>
+    <div class="space-y-8">
+      <div class="flex items-start gap-6">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-blue-600 font-bold text-xl">1</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Custom Orchestration Layer</h3>
+          <p class="text-gray-600">Designed and implemented a sophisticated custom orchestration layer that seamlessly integrates with SailPoint IdentityIQ, extending its capabilities while maintaining compatibility with existing workflows and reporting mechanisms.</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-6">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-blue-600 font-bold text-xl">2</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Bulk Approval Features</h3>
+          <p class="text-gray-600">Developed intelligent features enabling bulk approval of unchanged entitlements and bulk revocation capabilities, significantly reducing the time and effort required for routine certification tasks while maintaining security controls.</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-6">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-blue-600 font-bold text-xl">3</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Enterprise SSO Integration</h3>
+          <p class="text-gray-600">Implemented secure login functionality for reviewers and managers using enterprise Single Sign-On (SSO), ensuring robust authentication while simplifying access for authorized users.</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start gap-6">
+        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+          <span class="text-blue-600 font-bold text-xl">4</span>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">MVP Release & Integration</h3>
+          <p class="text-gray-600">Delivered a Minimum Viable Product (MVP) release hosted externally, fully integrated with IdentityIQ for enhanced certification reviews. The solution was designed with scalability in mind for future releases including RBAC, distribution list management, and support for ISC migration.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results Section -->
+<section class="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Results & Impact</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Streamlined</h3>
+        <p class="text-gray-600">Certification Workflows</p>
+      </div>
+      
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Reduced</h3>
+        <p class="text-gray-600">Approval Fatigue</p>
+      </div>
+      
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Improved</h3>
+        <p class="text-gray-600">Audit Readiness</p>
+      </div>
+      
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Seamless</h3>
+        <p class="text-gray-600">IIQ Integration</p>
+      </div>
+    </div>
+    
+    <div class="bg-white rounded-xl p-8 shadow-sm">
+      <h3 class="text-2xl font-bold text-gray-900 mb-6">Key Outcomes</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <p class="text-gray-700">Significantly reduced time spent on certification campaigns through intelligent bulk operations</p>
+        </div>
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <p class="text-gray-700">Enhanced compliance posture with better audit trails and decision tracking</p>
+        </div>
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <p class="text-gray-700">Maintained full integration with existing SailPoint IIQ reporting and tracking mechanisms</p>
+        </div>
+        <div class="flex items-start">
+          <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+          </svg>
+          <p class="text-gray-700">Scalable architecture designed to support future modernization and cloud migration to ISC</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-r from-blue-600 to-indigo-700">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Transform Your Identity Governance?</h2>
+    <p class="text-xl text-blue-100 mb-8">Let's discuss how we can help streamline your access certification and enhance your IGA solution.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="../index.html#contact" class="bg-white text-blue-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+        Get in Touch
+      </a>
+      <a href="../pages/case-studies.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-blue-600 transition font-semibold">
+        View More Case Studies
+      </a>
+    </div>
+  </div>
+</section>
+
+<!--Footer-->
+<footer class="bg-orange-900 text-white py-8 sm:py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Footer Content Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-6 sm:mb-8 lg:mb-12">
+      <!-- Brand Section -->
+      <div class="col-span-2 md:col-span-1">
+        <div class="mb-4 sm:mb-6">
+          <img src="../assets/images/Diaas_Logo white.png" alt="Diaas Logo" class="h-8 sm:h-10 object-scale-down">
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Your trusted partner for guaranteed software delivery. Combining advanced technology and decades of industry insight.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Quick Links</h4>
+        <ul class="space-y-2 sm:space-y-3">
+          <li><a href="../index.html" class="text-gray-300 hover:text-white transition text-sm">Home</a></li>
+          <li><a href="../pages/about.html" class="text-gray-300 hover:text-white transition text-sm">About Us</a></li>
+          <li><a href="../pages/case-studies.html" class="text-gray-300 hover:text-white transition text-sm">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Services</h4>
+        <ul class="space-y-2 sm:space-y-3">
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">IAM Solutions</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cybersecurity</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cloud Security</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Consulting</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Connect With Us</h4>
+        <div>
+          <p class="text-gray-300 text-xs sm:text-sm mb-3">
+            <span class="font-semibold">Email:</span><br>
+            <a href="mailto:info@diaas.com" class="hover:text-white transition">info@diaas.com</a>
+          </p>
+          <div id="socialIcons" class="flex flex-row items-center gap-3 sm:gap-4">
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="LinkedIn">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.469v6.766z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="Twitter">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="Facebook">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-orange-700 my-4 sm:my-6 lg:my-8"></div>
+
+    <!-- Bottom Section -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-orange-100 text-xs sm:text-sm">
+      <p>&copy; 2025 Diaas. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-6 mt-3 md:mt-0">
+        <a href="../pages/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="../pages/terms-of-service.html" class="hover:text-white transition">Terms of Service</a>
+        <a href="../pages/cookie-policy.html" class="hover:text-white transition">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
