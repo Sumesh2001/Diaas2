@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access Governance Strategy - Diaas Case Study</title>
+  <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../assets/css/variables.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/search.js" defer></script>
+</head>
+<body>
+<!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4 sm:space-x-12">
+                    <div class="image-2xl "><a href="../index.html"><img src="../assets/images/Diaas_Logo.png" class="h-8 sm:h-10 object-scale-down"></a></div>
+                    <ul class="hidden md:flex space-x-8">
+                       
+                        <li><a href="../index.html#services" class="text-gray-700 hover:text-orange-600 transition">Services</a></li>
+                        <li><a href="../pages/about.html" class="text-gray-700 hover:text-orange-600 transition">About us</a></li>
+                        <li><a href="../pages/case-studies.html" class="text-gray-700 hover:text-orange-600 transition font-semibold text-orange-600">Case Studies</a></li>
+                        <li><a href="../pages/careers.html" class="text-gray-700 hover:text-orange-600 transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="hidden md:flex items-center space-x-3">
+                    <div id="searchBar" class="hidden flex items-center bg-gray-100 rounded-full px-4 py-2 w-64">
+                        <input type="text" id="searchInput" placeholder="Search..." class="bg-transparent outline-none w-full text-gray-700" onkeypress="performSearch(event)">
+                        <button onclick="closeSearch()" class="text-gray-500 hover:text-gray-700 ml-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <button onclick="toggleSearch()" class="text-gray-700 hover:text-orange-600 transition p-2 hover:bg-gray-100 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
+                        </svg>
+                    </button>
+                    <a href="../index.html#contact" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold">
+                        Contact us
+                    </a>
+                </div>
+                <button class="md:hidden" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+                <ul class="space-y-3 mb-4">
+                    <li><a href="../index.html#services" class="text-gray-700 hover:text-orange-600 transition block">Services</a></li>
+                    <li><a href="../pages/about.html" class="text-gray-700 hover:text-orange-600 transition block">About us</a></li>
+                    <li><a href="../pages/case-studies.html" class="text-gray-700 hover:text-orange-600 transition block">Case Studies</a></li>
+                    <li><a href="../pages/careers.html" class="text-gray-700 hover:text-orange-600 transition block">Careers</a></li>
+                </ul>
+                <div class="flex items-center gap-3">
+                    <input type="text" id="mobileSearchInput" placeholder="Search..." class="flex-1 bg-gray-100 border-none rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-orange-500">
+                    <button onclick="performMobileSearch()" class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-700">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
+                        </svg>
+                    </button>
+                </div>
+                <a href="../index.html#contact" class="block mt-4 w-full bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold text-center">
+                    Contact us
+                </a>
+            </div>
+            
+            <!-- Search Results Dropdown -->
+            <div id="searchResults" class="hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg max-h-96 overflow-y-auto">
+                <div class="max-w-7xl mx-auto px-6 py-4"></div>
+            </div>
+        </div>
+    </nav>
+
+<!-- Hero Section -->
+<section class="pt-32 pb-16 bg-gradient-to-br from-orange-50 to-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-4xl">
+      <div class="inline-block bg-orange-100 text-orange-600 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+        Government - India
+      </div>
+      <h1 class="text-5xl font-bold text-gray-900 mb-6">Access Governance Strategy & Implementation</h1>
+      <p class="text-xl text-gray-600 mb-8">
+        Strategic roadmap and implementation of comprehensive Identity Governance & Administration framework for a large government organization.
+      </p>
+      <div class="flex flex-wrap gap-6 text-sm">
+        <div>
+          <span class="text-gray-500">Industry:</span>
+          <span class="font-semibold text-gray-900 ml-2">Government</span>
+        </div>
+        <div>
+          <span class="text-gray-500">Location:</span>
+          <span class="font-semibold text-gray-900 ml-2">India</span>
+        </div>
+        <div>
+          <span class="text-gray-500">Duration:</span>
+          <span class="font-semibold text-gray-900 ml-2">12 Months</span>
+        </div>
+        <div>
+          <span class="text-gray-500">Team Size:</span>
+          <span class="font-semibold text-gray-900 ml-2">6 Consultants</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Overview Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">Project Overview</h2>
+        <p class="text-gray-600 mb-4">
+          A government organization managing critical national infrastructure needed to establish a robust Identity Governance & Administration (IGA) framework to ensure compliance, reduce security risks, and streamline access management across 200+ applications.
+        </p>
+        <p class="text-gray-600 mb-4">
+          The engagement involved developing a multi-year IGA strategy, selecting appropriate technologies, and implementing the initial phase of access governance capabilities.
+        </p>
+      </div>
+      <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">Key Highlights</h3>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">3-year strategic roadmap developed</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">200+ applications assessed</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Automated access certification</span>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">75% reduction in access review time</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Challenges Section -->
+<section class="py-16 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Challenges</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white p-8 rounded-xl shadow-sm">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Fragmented Access Landscape</h3>
+        <p class="text-gray-600">
+          No centralized view of user access across 200+ applications with different authentication mechanisms and access models.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-sm">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Manual Compliance Processes</h3>
+        <p class="text-gray-600">
+          Time-consuming manual access reviews taking 6+ months to complete, with poor documentation and audit trails.
+        </p>
+      </div>
+      <div class="bg-white p-8 rounded-xl shadow-sm">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+          </svg>
+        </div>
+        <h3 class="text-xl font-bold text-gray-900 mb-3">Regulatory Pressure</h3>
+        <p class="text-gray-600">
+          Increasing regulatory requirements for access governance and audit readiness with limited resources and expertise.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Our Approach</h2>
+    <div class="space-y-8">
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+          1
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Current State Assessment</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Comprehensive inventory of all applications and access patterns</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Risk assessment of critical applications and data</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Analysis of existing access review processes and pain points</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Regulatory and compliance requirements mapping</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+          2
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Strategic Roadmap Development</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>3-year phased implementation roadmap</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Technology selection and architecture design (SailPoint IdentityIQ)</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Governance framework design with roles and responsibilities</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Business case and ROI analysis</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+          3
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Phase 1: Foundation Implementation</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>SailPoint IdentityIQ deployment and configuration</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Integration with 50 priority applications</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Identity data aggregation and correlation</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Automated access certification workflows</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+          4
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Role-Based Access Control Design</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Business role mining and definition for critical applications</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Entitlement catalog creation and management</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Segregation of Duties (SoD) policy definition</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Access request and approval workflows</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+          5
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Compliance & Reporting</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Automated quarterly access certification campaigns</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Audit-ready compliance reports and dashboards</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>SoD violation detection and remediation</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Policy enforcement and exception management</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="flex gap-6">
+        <div class="flex-shrink-0 w-12 h-12 bg-orange-600 text-white rounded-full flex items-center justify-center font-bold text-xl">
+          6
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Change Management & Training</h3>
+          <ul class="space-y-2 text-gray-600">
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Stakeholder engagement and communication plan</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Role-based training for administrators, reviewers, and end users</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Process documentation and standard operating procedures</span>
+            </li>
+            <li class="flex gap-2">
+              <span class="text-orange-600">•</span>
+              <span>Center of Excellence (CoE) establishment</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Results Section -->
+<section class="py-16 bg-gradient-to-br from-orange-50 to-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Results & Impact</h2>
+    <div class="grid md:grid-cols-4 gap-8 mb-12">
+      <div class="text-center">
+        <div class="text-5xl font-bold text-orange-600 mb-2">75%</div>
+        <div class="text-gray-600">Faster Access Reviews</div>
+      </div>
+      <div class="text-center">
+        <div class="text-5xl font-bold text-orange-600 mb-2">50</div>
+        <div class="text-gray-600">Apps Onboarded</div>
+      </div>
+      <div class="text-center">
+        <div class="text-5xl font-bold text-orange-600 mb-2">100%</div>
+        <div class="text-gray-600">Audit Compliance</div>
+      </div>
+      <div class="text-center">
+        <div class="text-5xl font-bold text-orange-600 mb-2">500+</div>
+        <div class="text-gray-600">SoD Violations Found</div>
+      </div>
+    </div>
+
+    <div class="bg-white p-8 rounded-2xl shadow-sm">
+      <h3 class="text-2xl font-bold text-gray-900 mb-6">Business Benefits</h3>
+      <div class="grid md:grid-cols-2 gap-6">
+        <ul class="space-y-3">
+          <li class="flex gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Reduced access certification cycle from 6 months to 6 weeks</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Centralized visibility across all critical applications</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Identified and remediated 500+ SoD violations</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Improved audit readiness and compliance posture</span>
+          </li>
+        </ul>
+        <ul class="space-y-3">
+          <li class="flex gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Automated access request and approval workflows</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Enhanced visibility into privileged access</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Clear roadmap for future IGA maturity</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-6 h-6 text-orange-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span class="text-gray-700">Established governance CoE for continuous improvement</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-16 bg-gradient-to-br from-orange-600 to-orange-700">
+  <div class="max-w-7xl mx-auto px-6 text-center">
+    <h2 class="text-3xl font-bold text-white mb-6">Need Help with Access Governance?</h2>
+    <p class="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+      Let's discuss how we can help you establish robust identity governance and compliance programs.
+    </p>
+    <a href="../pages/contact.html" class="inline-block bg-white text-orange-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+      Get In Touch
+    </a>
+  </div>
+</section>
+
+<footer class="bg-orange-900 text-white py-8 sm:py-12 lg:py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Footer Content Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 lg:gap-12 mb-6 sm:mb-8 lg:mb-12">
+      <!-- Brand Section -->
+      <div class="col-span-2 md:col-span-1">
+        <div class="mb-4 sm:mb-6">
+          <img src="../assets/images/Diaas_Logo white.png" alt="Diaas Logo" class="h-8 sm:h-10 object-scale-down">
+        </div>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Your trusted partner for guaranteed software delivery. Combining advanced technology and decades of industry insight.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Quick Links</h4>
+        <ul class="space-y-2 sm:space-y-3">
+          <li><a href="../index.html" class="text-gray-300 hover:text-white transition text-sm">Home</a></li>
+          <li><a href="../pages/about.html" class="text-gray-300 hover:text-white transition text-sm">About Us</a></li>
+          <li><a href="../pages/case-studies.html" class="text-gray-300 hover:text-white transition text-sm">Case Studies</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Services</h4>
+        <ul class="space-y-2 sm:space-y-3">
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">IAM Solutions</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cybersecurity</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cloud Security</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Consulting</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Social -->
+      <div>
+        <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Connect With Us</h4>
+        <div>
+          <p class="text-gray-300 text-xs sm:text-sm mb-3">
+            <span class="font-semibold">Email:</span><br>
+            <a href="mailto:info@diaas.com" class="hover:text-white transition">info@diaas.com</a>
+          </p>
+          <div id="socialIcons" class="flex flex-row items-center gap-3 sm:gap-4">
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="LinkedIn">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.469v6.766z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="Twitter">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="Facebook">
+              <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-orange-700 my-4 sm:my-6 lg:my-8"></div>
+
+    <!-- Bottom Section -->
+    <div class="flex flex-col md:flex-row justify-between items-center text-orange-100 text-xs sm:text-sm">
+      <p>&copy; 2025 Diaas. All rights reserved.</p>
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-6 mt-3 md:mt-0">
+        <a href="../pages/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
+        <a href="../pages/terms-of-service.html" class="hover:text-white transition">Terms of Service</a>
+        <a href="../pages/cookie-policy.html" class="hover:text-white transition">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleSearch() {
+  const searchBar = document.getElementById('searchBar');
+  searchBar.classList.toggle('hidden');
+  if (!searchBar.classList.contains('hidden')) {
+    document.getElementById('searchInput').focus();
+  }
+}
+
+function closeSearch() {
+  document.getElementById('searchBar').classList.add('hidden');
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResults').classList.add('hidden');
+}
+
+function performSearch(event) {
+  if (event.key === 'Enter') {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    displaySearchResults(query);
+  }
+}
+
+function performMobileSearch() {
+  const query = document.getElementById('mobileSearchInput').value.toLowerCase();
+  if (query.trim()) {
+    const searchData = getSearchData();
+    const results = searchData.filter(item => 
+      item.title.toLowerCase().includes(query) || 
+      item.description.toLowerCase().includes(query)
+    );
+    if (results.length > 0) {
+      window.location.href = results[0].url;
+    }
+  }
+}
+
+function displaySearchResults(query) {
+  const resultsDiv = document.getElementById('searchResults');
+  const searchData = getSearchData();
+  
+  const results = searchData.filter(item => 
+    item.title.toLowerCase().includes(query) || 
+    item.description.toLowerCase().includes(query)
+  );
+  
+  const resultsContent = resultsDiv.querySelector('.max-w-7xl');
+  if (results.length === 0) {
+    resultsContent.innerHTML = '<p class="text-gray-600 py-4">No results found for "' + query + '"</p>';
+  } else {
+    resultsContent.innerHTML = results.map(result => `
+      <a href="${result.url}" class="block p-3 hover:bg-orange-50 transition border-b last:border-b-0">
+        <h4 class="font-semibold text-gray-900">${result.title}</h4>
+        <p class="text-sm text-gray-600">${result.description}</p>
+      </a>
+    `).join('');
+  }
+  resultsDiv.classList.remove('hidden');
+}
+
+function getSearchData() {
+  return [
+    { title: 'Services', url: '../index.html#services', description: 'View our comprehensive services' },
+    { title: 'About Us', url: '../pages/about.html', description: 'Learn more about Diaas' },
+    { title: 'Case Studies', url: '../pages/case-studies.html', description: 'See our successful projects' },
+    { title: 'Careers', url: '../pages/careers.html', description: 'Join our team' },
+    { title: 'Contact', url: '../index.html#contact', description: 'Get in touch with us' }
+  ];
+}
+</script>
+</body>
+</html>

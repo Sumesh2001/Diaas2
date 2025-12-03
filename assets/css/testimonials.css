@@ -1,0 +1,60 @@
+/* Clean Testimonial Card Design */
+.testimonial-clean {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-clean:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-clean img {
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .testimonial-clean {
+    max-width: 100%;
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonial-clean .w-40 {
+    width: 8rem;
+    height: 8rem;
+  }
+  
+  .testimonial-clean .w-36 {
+    width: 7rem;
+    height: 7rem;
+  }
+  
+  .testimonial-clean .w-32 {
+    width: 7rem;
+    height: 7rem;
+  }
+  
+  .testimonial-clean h3 {
+    font-size: 1.125rem;
+  }
+  
+  .testimonial-clean p {
+    font-size: 0.813rem;
+  }
+  
+  .testimonial-clean .text-5xl {
+    font-size: 3rem;
+  }
+  
+  .testimonial-clean .text-3xl {
+    font-size: 1.875rem;
+  }
+  
+  .testimonial-clean .min-h-\[280px\] {
+    min-height: 240px;
+  }
+}
