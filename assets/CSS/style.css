@@ -1,3 +1,49 @@
+/* Global Font Family */
+body {
+  font-family: Georgia, Times, serif;
+}
+
+/* Page Headers Styling */
+h1 {
+  font-family: Georgia, Times, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-family: Georgia, Times, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  font-family: Georgia, Times, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+h4 {
+  font-family: Georgia, Times, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+h5, h6 {
+  font-family: Georgia, Times, serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
 .slider-wrapper {
   display: flex;
   align-items: stretch;

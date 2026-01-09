@@ -123,7 +123,7 @@ if (mail($to, "Contact Form: " . $subject, $email_body, $headers)) {
                 <p>Best regards,<br>Diaas Team</p>
             </div>
             <div class='footer'>
-                <p>© 2025 Diaas. All rights reserved.</p>
+                <p>© 2026 Diaas. All rights reserved.</p>
             </div>
         </div>
     </body>
