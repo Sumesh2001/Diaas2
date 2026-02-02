@@ -44,6 +44,70 @@ h5, h6 {
   letter-spacing: -0.5px;
 }
 
+/* Tagline Headings */
+.tagline-heading {
+  font-family: Georgia, Times, serif;
+  font-size: 1.375rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+@media (min-width: 640px) {
+  .tagline-heading {
+    font-size: 1.625rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .tagline-heading {
+    font-size: 1.875rem;
+  }
+}
+
+/* About Page Title */
+.about-title {
+  font-family: Georgia, Times, serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+@media (min-width: 640px) {
+  .about-title {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Tagline Small Size */
+.tagline-small {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+  .tagline-small {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .tagline-small {
+    font-size: 0.95rem;
+  }
+}
+
 .slider-wrapper {
   display: flex;
   align-items: stretch;
