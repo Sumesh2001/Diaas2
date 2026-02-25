@@ -993,3 +993,12 @@ footer h4::before {
   }
 }
 
+.primary-title {
+      display: inline-block;
+      letter-spacing: 1px;
+      color: var(--color-primary-600);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--color-primary-600);
+      min-width: 20px;
+    }
