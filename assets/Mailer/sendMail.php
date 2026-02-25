@@ -10,7 +10,7 @@ $response = ['success' => false, 'message' => ''];
 
 try {
   // Verify reCAPTCHA
-  $recaptchaSecret = '6LelPkUsAAAAAKjmcDLlP6mtVNCZNrx3pKN0ax4d';
+  $recaptchaSecret = '6Le9PHQsAAAAAFjSE1H9rqYG5i9qR3VEnP5n31i5';
   $recaptchaResponse = isset($_POST['g-recaptcha-response']) ? $_POST['g-recaptcha-response'] : '';
   if (empty($recaptchaResponse)) {
     throw new Exception('reCAPTCHA verification failed.');

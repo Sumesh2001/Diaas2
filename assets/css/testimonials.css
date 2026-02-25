@@ -1,7 +1,9 @@
-/* Clean Testimonial Card Design */
+/* Clean Testimonial Card Design - uses site typography (1 font, 4 sizes) */
 .testimonial-clean {
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
 }
 
 .testimonial-clean:hover {
@@ -39,19 +41,23 @@
   }
   
   .testimonial-clean h3 {
-    font-size: 1.125rem;
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
   }
   
   .testimonial-clean p {
-    font-size: 0.813rem;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
   }
   
   .testimonial-clean .text-5xl {
-    font-size: 3rem;
+    font-family: var(--font-body);
+    font-size: var(--text-xl);
   }
   
   .testimonial-clean .text-3xl {
-    font-size: 1.875rem;
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
   }
   
   .testimonial-clean .min-h-\[280px\] {

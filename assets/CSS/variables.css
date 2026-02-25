@@ -10,6 +10,13 @@
  */
 
 :root {
+  /* Typography - single font, 4 sizes only (slider excluded) */
+  --font-body: Georgia, Times, serif;
+  --text-sm: 0.875rem;   /* captions, small labels */
+  --text-base: 1rem;     /* body text */
+  --text-lg: 1.25rem;    /* subheadings, card titles */
+  --text-xl: 2.5rem;     /* page/section headings */
+
   /* Primary Colors - Orange */
   --color-primary: #F99602;
   --color-primary-50: #FFF7ED;

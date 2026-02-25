@@ -1,44 +1,13 @@
-/* Global Font Family */
+/* Global typography: 1 font, 4 sizes (slider has its own styles) */
 body {
-  font-family: Georgia, Times, serif;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
 }
 
 /* Page Headers Styling */
-h1 {
-  font-family: Georgia, Times, serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
-}
-
-h2 {
-  font-family: Georgia, Times, serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
-}
-
-h3 {
-  font-family: Georgia, Times, serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
-}
-
-h4 {
-  font-family: Georgia, Times, serif;
-  font-size: 2.5rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  letter-spacing: -0.5px;
-}
-
-h5, h6 {
-  font-family: Georgia, Times, serif;
-  font-size: 2.5rem;
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-size: var(--text-xl);
   font-weight: 600;
   margin-bottom: 20px;
   letter-spacing: -0.5px;
@@ -46,72 +15,37 @@ h5, h6 {
 
 /* Tagline Headings */
 .tagline-heading {
-  font-family: Georgia, Times, serif;
-  font-size: 1.375rem;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
   font-weight: 600;
   letter-spacing: -0.5px;
 }
-
-@media (min-width: 640px) {
-  .tagline-heading {
-    font-size: 1.625rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .tagline-heading {
-    font-size: 1.875rem;
-  }
+.tagline-base{
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
 /* About Page Title */
 .about-title {
-  font-family: Georgia, Times, serif;
-  font-size: 1.5rem;
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
   font-weight: 600;
   letter-spacing: -0.5px;
 }
 
-@media (min-width: 640px) {
-  .about-title {
-    font-size: 1.875rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .about-title {
-    font-size: 2.25rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .about-title {
-    font-size: 2.5rem;
-  }
-}
-
 /* Tagline Small Size */
 .tagline-small {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   line-height: 1.4;
-}
-
-@media (min-width: 640px) {
-  .tagline-small {
-    font-size: 0.85rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .tagline-small {
-    font-size: 0.95rem;
-  }
 }
 
 .slider-wrapper {
   display: flex;
   align-items: stretch;
-  height: 90vh;
+  height: 620px;
+  min-height: 620px;
   gap: 15px;
   padding: 20px;
   overflow: hidden;
@@ -172,11 +106,17 @@ h5, h6 {
 .slider-container {
       display: flex;
       align-items: stretch;
-      padding: 20px;
-      gap: 15px;
-      height: 90vh;
+      padding: clamp(8px, 2vw, 20px);
+      gap: clamp(10px, 1.5vw, 15px);
+      height: 620px;       
+      max-height: 620px;
+      min-height: 620px;
       overflow: hidden;
       position: relative;
+      box-sizing: border-box;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
     }
 
 .slider-thumbnails {
@@ -194,8 +134,8 @@ h5, h6 {
     .slide {
       position: relative;
       flex: 0.22;
-      min-width: 120px;
-      max-width: 1080px;
+      min-width: clamp(80px, 10vw, 200px);
+      max-width: clamp(300px, 85vw, 1080px);
       height: 100%;
       border-radius: 15px;
       overflow: hidden;
@@ -207,6 +147,7 @@ h5, h6 {
       justify-content: flex-end;
       z-index: 1;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
     }
 
     /* Slide Image */
@@ -247,11 +188,12 @@ h5, h6 {
     .slide-content {
       position: relative;
       z-index: 3;
-      padding: 50px 60px;
+      padding: clamp(20px, 4vw, 60px) clamp(25px, 5vw, 60px);
       opacity: 0;
       transform: translateY(20px) scale(0.95);
       transition: opacity 0.6s cubic-bezier(0.3, 0.84, 0.63, 0.98) 0.2s,
                   transform 0.6s cubic-bezier(0.3, 0.84, 0.63, 0.98) 0.2s;
+      box-sizing: border-box;
     }
 
     .slide.active .slide-content {
@@ -264,11 +206,11 @@ h5, h6 {
       font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 1.5px;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--color-primary-600);
       text-transform: uppercase;
       margin-bottom: 20px;
       padding-bottom: 12px;
-      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      border-bottom: 2px solid var(--color-primary-600);
       min-width: 120px;
     }
 
@@ -276,6 +218,7 @@ h5, h6 {
       font-family: Georgia, Times, serif;
       font-size: 2.5rem;
       font-weight: 600;
+      margin-bottom: clamp(12px, 2vw, 20px);
       margin-bottom: 20px;
       letter-spacing: -0.5px;
       color: #ffffff;
@@ -284,11 +227,16 @@ h5, h6 {
     }
 
     .slide-desc {
-      font-size: 1.1rem;
+      font-size: clamp(0.9rem, 1.2vw, 1.1rem);
       max-width: 550px;
       line-height: 1.6;
-      margin-bottom: 30px;
+      margin-bottom: clamp(20px, 2vw, 30px);
       color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Match Our Services card descriptions to slider description sizing (only font-size) */
+    .industries-track .industry-card p {
+      font-size: clamp(0.9rem, 1.2vw, 1.1rem);
     }
 
     .slide-btn {
@@ -361,27 +309,28 @@ h5, h6 {
     /* Navigation Arrows */
     .nav-arrows {
       position: absolute;
-      bottom: 36px;
-      right: 56px;
+      bottom: clamp(20px, 3vw, 36px);
+      right: clamp(30px, 4vw, 56px);
       display: flex;
-      gap: 22px;
+      gap: clamp(15px, 2vw, 22px);
       z-index: 10;
     }
 
     .arrow {
-      width: 48px;
-      height: 48px;
+      width: clamp(32px, 5vw, 48px);
+      height: clamp(32px, 5vw, 48px);
       border-radius: 50%;
       border: 2px solid #fff;
       background: rgba(40, 50, 85, 0.22);
       color: #fff;
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 2vw, 1.5rem);
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       box-shadow: 0 2px 16px rgba(30, 40, 60, 0.12);
       transition: background 0.3s, transform 0.27s;
+      flex-shrink: 0;
     }
 
     .arrow:hover {
@@ -504,6 +453,8 @@ h5, h6 {
         height: auto;
         gap: 10px;
         min-height: 540px;
+        max-width: 1280px;
+        margin: 0 auto;
       }
 
       .slide {
@@ -531,12 +482,15 @@ h5, h6 {
   display: flex;
   align-items: center;
   overflow: hidden;
+  z-index: 10;
 }
 
 .industries-track {
   display: flex;
   gap: 1.5rem;
   transition: transform 0.8s cubic-bezier(0.45, 0, 0.15, 1);
+  flex: 1;
+  min-width: 0;
 }
 
 .industry-card {
@@ -602,15 +556,19 @@ h5, h6 {
   stroke-width: 2.5;
 }
 
-/* Mobile arrows */
-#prevIndustryMobile, #nextIndustryMobile {
-  position: absolute;
-  top: 40%;
+/* Carousel buttons: absolute on mobile, in flow on desktop */
+#prevIndustry, #nextIndustry {
   z-index: 10;
 }
 
-#prevIndustryMobile { left: -15px; }
-#nextIndustryMobile { right: -15px; }
+@media (max-width: 1023px) {
+  #prevIndustry, #nextIndustry {
+    position: absolute;
+    top: 40%;
+  }
+  #prevIndustry { left: -15px; }
+  #nextIndustry { right: -15px; }
+}
 
 /* Fade-in animation */
 .industry-card {
@@ -630,6 +588,13 @@ h5, h6 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* highlight */
+#highlights {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* === Footer Styles === */
@@ -781,13 +746,16 @@ footer h4::before {
 /* Mobile Responsive Improvements */
 @media (max-width: 768px) {
   .slider-container {
-    height: 70vh;
+    height: clamp(280px, 70vh, 70vh);
     padding: 8px;
     gap: 0;
     margin-top: 56px;
     position: relative;
     display: block;
     perspective: 1000px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .slide {
@@ -846,6 +814,10 @@ footer h4::before {
     line-height: 1.4;
   }
 
+  .industries-track .industry-card p {
+    font-size: 0.875rem;
+  }
+
   .slide-btn {
     padding: 10px 20px;
     font-size: 0.875rem;
@@ -854,6 +826,7 @@ footer h4::before {
   .slide-category {
     font-size: 0.75rem;
     margin-bottom: 0.5rem;
+    color: var(--color-primary-600);
   }
 
   .progress-bar {
@@ -904,7 +877,10 @@ footer h4::before {
 
 @media (max-width: 640px) {
   .slider-container {
-    height: 65vh;
+    height: clamp(250px, 65vh, 65vh);
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 6px;
     gap: 0;
     perspective: 1000px;
@@ -933,6 +909,7 @@ footer h4::before {
 
   .slide-category {
     font-size: 0.7rem;
+    color: var(--color-primary-600);
   }
 
   .slide-title2 {
@@ -945,6 +922,10 @@ footer h4::before {
     -webkit-line-clamp: 2;
     line-clamp: 2;
     margin-bottom: 0.75rem;
+  }
+
+  .industries-track .industry-card p {
+    font-size: 0.8rem;
   }
 
   .slide-btn {
@@ -977,7 +958,10 @@ footer h4::before {
 
 @media (max-width: 480px) {
   .slider-container {
-    height: 60vh;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    height: clamp(220px, 60vh, 60vh);
     padding: 4px;
     perspective: 1000px;
   }
@@ -996,6 +980,10 @@ footer h4::before {
   }
 
   .slide-desc {
+    font-size: 0.75rem;
+  }
+
+  .industries-track .industry-card p {
     font-size: 0.75rem;
   }
 
