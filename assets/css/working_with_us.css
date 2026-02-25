@@ -1,0 +1,200 @@
+
+/* ══════════════════════════════════════
+   CAROUSEL SHELL
+══════════════════════════════════════ */
+.diaas-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 36px;
+}
+
+/* ══════════════════════════════════════
+   VIEWPORT
+══════════════════════════════════════ */
+.diaas-viewport {
+  overflow: hidden;
+  width: 100%;
+  padding: 28px 0;        /* vertical breathing room for scale pop */
+  box-sizing: border-box;
+}
+
+/* ══════════════════════════════════════
+   TRACK
+══════════════════════════════════════ */
+.diaas-track {
+  display: flex;
+  align-items: center;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ══════════════════════════════════════
+   SLIDES — desktop: 3 per view, LANDSCAPE
+══════════════════════════════════════ */
+.diaas-slide {
+  flex: 0 0 calc(100% / 3);
+  box-sizing: border-box;
+  padding: 0 10px;
+  cursor: pointer;
+  opacity: 0.38;
+  transform: scale(0.86);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.diaas-slide img {
+  width: 100%;
+  aspect-ratio: 4 / 4;         /* ← landscape (matches your PNG frames) */
+  object-fit: cover;
+  object-position: top center; /* keep faces visible */
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  transition: box-shadow 0.65s ease;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════
+   ACTIVE CENTRE SLIDE
+══════════════════════════════════════ */
+.diaas-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  cursor: default;
+}
+
+.diaas-slide.active img {
+  box-shadow:
+    0 20px 56px rgba(0,0,0,0.22),
+    0 0 0 3px rgba(234,88,12,0.22);
+}
+
+/* ══════════════════════════════════════
+   NAV BUTTONS
+══════════════════════════════════════ */
+.diaas-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-60%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: #ea580c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.13);
+  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.diaas-btn:hover {
+  background: #ea580c;
+  color: #fff;
+  box-shadow: 0 6px 20px rgba(234,88,12,0.32);
+  transform: translateY(-60%) scale(1.08);
+}
+.diaas-btn--prev { left: -20px; }
+.diaas-btn--next { right: -20px; }
+
+/* ══════════════════════════════════════
+   DOTS — desktop only
+══════════════════════════════════════ */
+.diaas-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  flex-wrap: wrap;
+}
+
+.diaas-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #d1d5db;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  transition: background 0.3s, transform 0.3s;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+/* bigger invisible tap zone */
+.diaas-dot::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+}
+.diaas-dot.active {
+  background: #ea580c;
+  transform: scale(1.55);
+}
+
+/* ══════════════════════════════════════
+   TABLET  641 – 1024 px
+══════════════════════════════════════ */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .diaas-slide {
+    flex: 0 0 calc(100% / 3);
+    padding: 0 7px;
+  }
+  .diaas-btn--prev { left: -8px; }
+  .diaas-btn--next { right: -8px; }
+}
+
+/* ══════════════════════════════════════
+   MOBILE  ≤ 640 px
+   – 1 active card + side peeks
+   – NO dots
+   – swipe to navigate
+══════════════════════════════════════ */
+@media (max-width: 640px) {
+
+  .diaas-carousel {
+    padding-bottom: 16px;
+  }
+
+  .diaas-dots {
+    display: none;
+  }
+
+  .diaas-slide {
+    flex: 0 0 85%;          /* must match slideW = vpW * 0.85 in JS */
+    padding: 0 8px;
+    opacity: 0.42;
+    transform: scale(0.94);
+  }
+
+  .diaas-slide.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .diaas-slide img {
+    border-radius: 16px;
+    aspect-ratio: 4 / 4;
+  }
+
+  /* Push arrows outside the image area */
+  .diaas-btn {
+    width: 34px;
+    height: 34px;
+    top: auto;
+    bottom: -48px;           /* place below the card */
+    transform: none;
+  }
+  .diaas-btn:hover {
+    transform: scale(1.08);
+  }
+  .diaas-btn--prev { left: calc(50% - 48px); }
+  .diaas-btn--next { right: calc(50% - 48px); }
+}

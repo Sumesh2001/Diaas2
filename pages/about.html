@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="../assets/css/variables.css">
   <link rel="stylesheet" href="../assets/css/style.css">
   <link rel="stylesheet" href="../assets/css/services.css">
+  <link rel="stylesheet" href="../assets/css/working_with_us.css">
   <script src="../assets/js/search.js" defer></script>
+  <script src="../assets/js/working_with_us.js" defer></script>
 </head>
 <body>
 <!-- Navigation -->
@@ -351,242 +353,44 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
 
-      <!-- Viewport (clips overflow) -->
-      <div class="diaas-viewport">
+      <!-- Viewport -->
+      <div class="diaas-viewport" id="diaasViewport">
         <div class="diaas-track" id="diaasTrack">
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide1.JPG" alt="Team moment 1"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide2.JPG" alt="Team moment 2"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide3.JPG" alt="Team moment 3"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide4.JPG" alt="Team moment 4"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide5.JPG" alt="Team moment 5"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide6.JPG" alt="Team moment 6"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide7.JPG" alt="Team moment 7"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide8.JPG" alt="Team moment 8"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide9.JPG" alt="Team moment 9"></div>
-          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide10.JPG" alt="Team moment 10"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide1.PNG"  alt="Team moment 1"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide2.PNG"  alt="Team moment 2"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide3.PNG"  alt="Team moment 3"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide4.PNG"  alt="Team moment 4"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide5.PNG"  alt="Team moment 5"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide6.PNG"  alt="Team moment 6"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide7.PNG"  alt="Team moment 7"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide8.PNG"  alt="Team moment 8"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide9.PNG"  alt="Team moment 9"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide10.PNG" alt="Team moment 10"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide11.PNG" alt="Team moment 11"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide12.PNG" alt="Team moment 12"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide13.PNG" alt="Team moment 13"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide14.PNG" alt="Team moment 14"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide15.PNG" alt="Team moment 15"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide16.PNG" alt="Team moment 16"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide17.PNG" alt="Team moment 17"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide18.PNG" alt="Team moment 18"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide19.PNG" alt="Team moment 19"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide20.PNG" alt="Team moment 20"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide21.PNG" alt="Team moment 21"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide22.PNG" alt="Team moment 22"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide23.PNG" alt="Team moment 23"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide24.PNG" alt="Team moment 24"></div>
+          <div class="diaas-slide"><img src="../assets/images/working_with_us/Slide25.PNG" alt="Team moment 25"></div>
         </div>
       </div>
 
-      <!-- Dots -->
+      <!-- Dots (hidden on mobile via CSS) -->
       <div class="diaas-dots" id="diasDots"></div>
     </div>
   </div>
 </div>
 
-<style>
-/* ── Carousel shell ── */
-.diaas-carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-bottom: 36px;
-}
 
-/* ── Viewport: clips overflow, gives vertical room for scale pop ── */
-.diaas-viewport {
-  overflow: hidden;
-  width: 100%;
-  padding: 32px 0;
-}
-
-/* ── Track: flex row ── */
-.diaas-track {
-  display: flex;
-  align-items: center;
-  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
-}
-
-/* ── Slide: 1/3 wide, portrait ratio ── */
-.diaas-slide {
-  flex: 0 0 calc(100% / 3);
-  box-sizing: border-box;
-  padding: 0 10px;
-  cursor: pointer;
-
-  /* faded by default */
-  opacity: 0.38;
-  transform: scale(0.85);
-  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.diaas-slide img {
-  width: 100%;
-  aspect-ratio: 3 / 4;   /* portrait */
-  object-fit: cover;
-  border-radius: 22px;
-  display: block;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-  transition: box-shadow 0.65s ease;
-}
-
-/* ── Active centre slide ── */
-.diaas-slide.active {
-  opacity: 1;
-  transform: scale(1);
-  cursor: default;
-}
-
-.diaas-slide.active img {
-  box-shadow:
-    0 22px 60px rgba(0,0,0,0.22),
-    0 0 0 3px rgba(234,88,12,0.22);
-}
-
-/* ── Nav buttons ── */
-.diaas-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-60%);
-  z-index: 10;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: none;
-  background: #fff;
-  color: #ea580c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.13);
-  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-.diaas-btn:hover {
-  background: #ea580c;
-  color: #fff;
-  box-shadow: 0 6px 20px rgba(234,88,12,0.32);
-  transform: translateY(-60%) scale(1.08);
-}
-.diaas-btn--prev { left: -20px; }
-.diaas-btn--next { right: -20px; }
-
-/* ── Dots ── */
-/* ── Dots ── */
-.diaas-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 24px;
-  flex-wrap: wrap;
-}
-
-/* Larger tap area */
-.diaas-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: #d1d5db;
-  cursor: pointer;
-  padding: 0;
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-/* Active */
-.diaas-dot.active {
-  background: #ea580c;
-  transform: scale(1.6);
-}
-
-/* ── Mobile Optimisation ── */
-@media (max-width: 640px) {
-
-  .diaas-dots {
-    gap: 14px;
-    margin-top: 28px;
-    
-  }
-
-  .diaas-dot {
-    width: 3px;
-    height: 3px;
-    
-  }
-
-  .diaas-dot.active {
-    transform: scale(1.8);
-    
-  }
-
-}
-
-/* ── Mobile: single centred card ── */
-@media (max-width: 640px) {
-  .diaas-slide {
-    flex: 0 0 78%;
-  }
-  .diaas-btn--prev { left: 0; }
-  .diaas-btn--next { right: 0; }
-}
-</style>
-
-<script>
-(function () {
-  const track    = document.getElementById("diaasTrack");
-  const slides   = Array.from(track.querySelectorAll(".diaas-slide"));
-  const dotsWrap = document.getElementById("diasDots");
-  const total    = slides.length;
-  let current    = 0;
-  let timer;
-
-  /* Build dots */
-  slides.forEach((_, i) => {
-    const d = document.createElement("button");
-    d.className = "diaas-dot";
-    d.setAttribute("aria-label", `Slide ${i + 1}`);
-    d.onclick = () => goTo(i);
-    dotsWrap.appendChild(d);
-  });
-  const dots = Array.from(dotsWrap.querySelectorAll(".diaas-dot"));
-
-  function render() {
-    const viewport = track.parentElement;           /* .diaas-viewport */
-    const vpW      = viewport.offsetWidth;
-    const slideW   = vpW / 3;                       /* each slide is exactly 1/3 */
-
-    /*
-      We want slide[current] centred in the viewport.
-      Left edge of active slide = current * slideW
-      To centre it: shift left by (current * slideW) - (vpW/2 - slideW/2)
-                                = (current - 1) * slideW   when vpW = 3*slideW  ✓
-    */
-    const offset = (current * slideW) - (vpW / 2 - slideW / 2);
-    track.style.transform = `translateX(${-offset}px)`;
-
-    slides.forEach((s, i) => s.classList.toggle("active", i === current));
-    dots.forEach((d, i)   => d.classList.toggle("active", i === current));
-  }
-
-  function goTo(i) {
-    current = ((i % total) + total) % total;
-    render();
-    restart();
-  }
-
-  function next() { goTo(current + 1); }
-  function prev() { goTo(current - 1); }
-
-  function restart() {
-    clearInterval(timer);
-    timer = setInterval(next, 4000);
-  }
-
-  document.getElementById("nextBtn").onclick = next;
-  document.getElementById("prevBtn").onclick = prev;
-
-  /* Click a side slide to jump to it */
-  slides.forEach((s, i) => {
-    s.onclick = () => { if (i !== current) goTo(i); };
-  });
-
-  window.addEventListener("load",   () => { render(); restart(); });
-  window.addEventListener("resize", render);
-})();
-</script>
 
     <!-- Team Leadership Section -->
     <div class="mb-12 sm:mb-16 md:mb-24">
