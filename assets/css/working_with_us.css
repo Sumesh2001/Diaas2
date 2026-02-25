@@ -186,15 +186,16 @@
 
   /* Push arrows outside the image area */
   .diaas-btn {
+    position: absolute;
+    top: 50%;
     width: 34px;
     height: 34px;
-    top: auto;
-    bottom: -48px;           /* place below the card */
     transform: none;
+    z-index: 10;
   }
   .diaas-btn:hover {
     transform: scale(1.08);
   }
-  .diaas-btn--prev { left: calc(50% - 48px); }
-  .diaas-btn--next { right: calc(50% - 48px); }
+ .diaas-btn--prev { left: -20px; }
+.diaas-btn--next { right: -20px; }
 }
