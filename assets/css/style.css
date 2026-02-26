@@ -206,11 +206,11 @@ h1, h2, h3, h4, h5, h6 {
       font-size: 0.85rem;
       font-weight: 700;
       letter-spacing: 1.5px;
-      color: var(--color-primary-600);
+      color: var(--color-gray-400);
       text-transform: uppercase;
       margin-bottom: 20px;
       padding-bottom: 12px;
-      border-bottom: 2px solid var(--color-primary-600);
+      border-bottom: 2px solid var(--color-gray-400);
       min-width: 120px;
     }
 
@@ -826,7 +826,7 @@ footer h4::before {
   .slide-category {
     font-size: 0.75rem;
     margin-bottom: 0.5rem;
-    color: var(--color-primary-600);
+    color: var(--color-gray-400);
   }
 
   .progress-bar {
@@ -909,7 +909,7 @@ footer h4::before {
 
   .slide-category {
     font-size: 0.7rem;
-    color: var(--color-primary-600);
+    color: var(--color-gray-400);
   }
 
   .slide-title2 {
