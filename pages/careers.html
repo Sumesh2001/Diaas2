@@ -101,12 +101,28 @@
               <span>Code of ethics</span>
             </span>
           </p>
-          <h1 class="about-title text-gray-900 leading-tight mb-4">
+          <!-- <h1 class="about-title text-gray-900 leading-tight mb-4">
             Build a career where<br class="hidden sm:block"> impact meets innovation.
           </h1>
           <p class="text-lg sm:tagline-heading text-black/90 mb-8">
             Join a team that secures the world's most ambitious businesses while giving you room to learn, lead, and thrive.
-          </p>
+          </p> -->
+            <div class="h-14 overflow-hidden relative mt-2">
+              <div id="ethicsSlider" class="transition-all duration-700 ease-in-out">
+                
+                <p class="ethics-item text-xl font-semibold">World-Class Team</p>
+                <p class="ethics-item text-xl font-semibold">Skilled Professionals</p>
+                <p class="ethics-item text-xl font-semibold">Highest Ethical Standards</p>
+                <p class="ethics-item text-xl font-semibold">Equitable Association</p>
+                <p class="ethics-item text-xl font-semibold">Purposeful Leadership</p>
+                <p class="ethics-item text-xl font-semibold">Team & Individual Efforts</p>
+                <p class="ethics-item text-xl font-semibold">Achieve Vision & Purpose</p>
+                <p class="ethics-item text-xl font-semibold">Commitment & Adherence</p>
+
+              </div>
+            </div>
+
+
           <div class="flex flex-col sm:flex-row gap-4 sm:items-center">
             <a href="#open-roles" class="inline-flex justify-center px-6 py-3 bg-white text-orange-700 font-semibold rounded-xl shadow-lg hover:-translate-y-0.5 transition transform">
               Connect with us on LinkedIn to stay updated
@@ -127,13 +143,35 @@
             <p class="text-3xl font-bold">4.9/5</p>
             <p class="text-sm text-white/80">Average team happiness score from our internal surveys.</p>
           </div>
-          <div class="bg-white/15 backdrop-blur rounded-2xl p-5 shadow-lg border border-white/20 col-span-2">
+          <div class="bg-white/15 backdrop-blur rounded-2xl p-5 shadow-lg border border-white/20">
+            <p class="text-sm uppercase tracking-wide text-white/70 mb-2">Opportunities</p>
+            <p class="tagline-heading font-semibold">Global security projects · Mentorship · Certifications</p>
+          </div>
+          <div class="bg-white/15 backdrop-blur rounded-2xl p-5 shadow-lg border border-white/20">
             <p class="text-sm uppercase tracking-wide text-white/70 mb-2">Opportunities</p>
             <p class="tagline-heading font-semibold">Global security projects · Mentorship · Certifications</p>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+let ethicsIndex = 0;
+const slider = document.getElementById("ethicsSlider");
+const items = document.querySelectorAll(".ethics-item");
+const total = items.length;
+
+setInterval(() => {
+  ethicsIndex++;
+
+  if (ethicsIndex >= total) {
+    ethicsIndex = 0;
+  }
+
+  slider.style.transform = `translateY(-${ethicsIndex * 56}px)`;
+
+}, 3000);
+</script>
 
     <!-- Team Testimonials Slider Section -->
     <div class="mb-16 bg-gradient-to-br from-gray-50 to-orange-50 py-6 sm:py-8 md:py-10 rounded-3xl">
@@ -386,7 +424,7 @@
   <div class="rounded-3xl absolute inset-0 bg-black/60"></div>
 
   <div class="relative">
-    <h2 class="tagline-heading font-bold mb-4 text-white text-2xl md:text-1xl">
+    <h2 class="tagline-heading font-bold mb-4 text-white">
       Why Join <span class="text-orange-400">Diaas?</span>
     </h2>
 
@@ -470,7 +508,7 @@
             <a href="mailto:contact@diaas.in" class="hover:text-white transition">contact[at]diaas.in</a>
           </p>
           <div id="socialIcons" class="flex flex-row items-center gap-3 sm:gap-4">
-            <a href="#" class="text-gray-300 hover:text-white transition inline-block" title="LinkedIn">
+            <a href="https://www.linkedin.com/company/diaas/" target="_blank" class="text-orange-600 hover:text-white transition inline-block" title="LinkedIn">
               <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.469v6.766z"/>
               </svg>

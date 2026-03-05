@@ -25,19 +25,6 @@
         </ul>
       </div>
       <div class="hidden md:flex items-center space-x-3">
-        <!-- <div id="searchBar" class="hidden flex items-center bg-gray-100 rounded-full px-4 py-2 w-64">
-          <input type="text" id="searchInput" placeholder="Search in page..." class="bg-transparent outline-none w-full text-gray-700" onkeypress="performSearch(event)">
-          <button onclick="closeSearch()" class="text-gray-500 hover:text-gray-700 ml-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        <button onclick="toggleSearch()" class="text-gray-700 hover:text-orange-600 transition p-2 hover:bg-gray-100 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
-          </svg>
-        </button> -->
         <a href="../index.html#contact" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold">
           Contact us
         </a>
@@ -48,7 +35,7 @@
         </svg>
       </button>
     </div>
-    
+
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
       <ul class="space-y-3 mb-4">
@@ -57,19 +44,11 @@
         <li><a href="../pages/case-studies.html" class="text-gray-700 hover:text-orange-600 transition block">Case Studies</a></li>
         <li><a href="../pages/careers.html" class="text-gray-700 hover:text-orange-600 transition block">Working at Diaas</a></li>
       </ul>
-      <!-- <div class="flex items-center gap-3">
-        <input type="text" id="mobileSearchInput" placeholder="Search in page..." class="flex-1 bg-gray-100 border-none rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-orange-500">
-        <button onclick="performMobileSearch()" class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-700">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
-          </svg>
-        </button>
-      </div> -->
       <a href="../index.html#contact" class="block mt-4 w-full bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold text-center">
         Contact us
       </a>
     </div>
-    
+
     <!-- Search Results Dropdown -->
     <div id="searchResults" class="hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg max-h-96 overflow-y-auto">
       <div class="max-w-7xl mx-auto px-6 py-4"></div>
@@ -78,35 +57,34 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="pt-32 pb-16 bg-gradient-to-br from-green-50 to-teal-100">
+<section class="pt-20 pb-8 bg-gradient-to-br from-orange-50 to-orange-100">
   <div class="max-w-7xl mx-auto px-6">
     <div class="max-w-4xl">
-      <a href="../pages/case-studies.html" class="inline-flex items-center text-green-600 hover:text-green-800 mb-6 font-semibold">
+      <a href="../pages/case-studies.html" class="inline-flex items-center text-orange-600 hover:text-orange-800 mb-6 font-semibold">
         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
         Back to Case Studies
       </a>
-      <span class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">Public Sector</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Cyber Workforce Skilling Hub</h1>
-      <p class="text-xl text-gray-600 mb-8">Building national cybersecurity capabilities through comprehensive IAM training for government ministries in Indonesia</p>
-      
+      <h1 class="tagline-heading font-bold text-gray-900 mb-6">Cyber Workforce Skilling Hub</h1>
+      <p class="tagline-base text-gray-600 mb-8">Building national cybersecurity capabilities through comprehensive IAM training for government ministries in Indonesia.</p>
+
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div>
           <p class="text-sm text-gray-500 mb-1">Client</p>
-          <p class="font-bold text-gray-900">Government Ministry</p>
+          <p class="font-bold text-gray-900 tagline-small">Government Ministry</p>
         </div>
         <div>
           <p class="text-sm text-gray-500 mb-1">Location</p>
-          <p class="font-bold text-gray-900">Indonesia</p>
+          <p class="font-bold text-gray-900 tagline-small">Indonesia</p>
         </div>
         <div>
           <p class="text-sm text-gray-500 mb-1">Program</p>
-          <p class="font-bold text-gray-900">6-Week Training</p>
+          <p class="font-bold text-gray-900 tagline-small">6-Week Training</p>
         </div>
         <div>
           <p class="text-sm text-gray-500 mb-1">Participants</p>
-          <p class="font-bold text-gray-900">85 Trained</p>
+          <p class="font-bold text-gray-900 tagline-small">85 Trained</p>
         </div>
       </div>
     </div>
@@ -114,42 +92,42 @@
 </section>
 
 <!-- Overview Section -->
-<section class="py-16 bg-white">
+<section class="py-8 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-2 gap-12">
       <div>
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
-        <p class="text-gray-600 mb-4">
+        <h2 class="tagline-heading font-bold text-gray-900 mb-6">Overview</h2>
+        <p class="text-gray-600 mb-2 tagline-small">
           In response to Indonesia's national initiative to strengthen cybersecurity capabilities across government ministries, we were selected to establish and operate a comprehensive Cyber Workforce Skilling Hub. The program aimed to build a robust pipeline of cybersecurity professionals with specialized expertise in Identity and Access Management (IAM).
         </p>
-        <p class="text-gray-600">
+        <p class="text-gray-600 tagline-small">
           The initiative addressed the critical shortage of skilled cybersecurity professionals in the public sector, focusing on both fresh graduates seeking to enter the field and working professionals looking to reskill for cybersecurity roles.
         </p>
       </div>
-      
-      <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-8">
-        <h3 class="text-xl font-bold text-gray-900 mb-6">Program Highlights</h3>
-        <div class="space-y-4">
+
+      <div class="bg-gradient-to-br from-orange-50 to-orange-50 rounded-xl p-8">
+        <h3 class="tagline-base font-bold text-gray-900 mb-6">Program Highlights</h3>
+        <div class="space-y-4 tagline-small">
           <div class="flex items-start">
-            <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
-            <p class="text-gray-700">National-level cyber skilling hub in Singhasari SEZ</p>
+            <p class="text-gray-700 tagline-small">National-level cyber skilling hub in Singhasari SEZ</p>
           </div>
           <div class="flex items-start">
-            <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
             <p class="text-gray-700">Intensive 6-week classroom training program</p>
           </div>
           <div class="flex items-start">
-            <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
             <p class="text-gray-700">Specialized focus on IAM technologies and practices</p>
           </div>
           <div class="flex items-start">
-            <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
             <p class="text-gray-700">Career enablement for government cybersecurity roles</p>
@@ -161,124 +139,141 @@
 </section>
 
 <!-- Challenges Section -->
-<section class="py-16 bg-gray-50">
+<section class="py-8 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Challenges</h2>
+    <h2 class="tagline-heading font-bold text-gray-900 mb-6 text-center">Challenges</h2>
     <div class="grid md:grid-cols-2 gap-8">
       <div class="bg-white rounded-xl p-8 shadow-sm">
-        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Structured Training Requirements</h3>
-        <p class="text-gray-600">Need for a comprehensive, well-structured program capable of effectively skilling and reskilling participants from diverse backgrounds in specialized IAM and cybersecurity domains.</p>
+        <h3 class="tagline-base font-bold text-gray-900 mb-3">Structured Training Requirements</h3>
+        <p class="tagline-small text-gray-600">Need for a comprehensive, well-structured program capable of effectively skilling and reskilling participants from diverse backgrounds in specialized IAM and cybersecurity domains.</p>
       </div>
-      
+
       <div class="bg-white rounded-xl p-8 shadow-sm">
-        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Limited Awareness & Resources</h3>
-        <p class="text-gray-600">Government ministries faced limited awareness about IAM best practices and specialized training resources, requiring comprehensive educational content and hands-on learning approaches.</p>
+        <h3 class="tagline-base font-bold text-gray-900 mb-3">Limited Awareness & Resources</h3>
+        <p class="tagline-small text-gray-600">Government ministries faced limited awareness about IAM best practices and specialized training resources, requiring comprehensive educational content and hands-on learning approaches.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Solution Section -->
-<section class="py-16 bg-white">
+<section class="py-6 bg-white">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Our Solution</h2>
-    <div class="space-y-8">
-      <div class="flex items-start gap-6">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-          <span class="text-green-600 font-bold text-xl">1</span>
+    <div class="text-center mb-6">
+      <h2 class="tagline-heading font-bold text-gray-900">Our Solution</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+      <!-- Card 1 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">1</span>
+          </div>
         </div>
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Cyber Skilling Hub Establishment</h3>
-          <p class="text-gray-600">Established a dedicated cyber workforce skilling hub at Singhasari Special Economic Zone (SEZ) in Indonesia, equipped with state-of-the-art infrastructure and learning resources specifically designed for hands-on cybersecurity and IAM training.</p>
-        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">Cyber Skilling Hub Establishment</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Established a dedicated cyber workforce skilling hub at Singhasari Special Economic Zone (SEZ) in Indonesia, equipped with state-of-the-art infrastructure and learning resources for hands-on IAM training.
+        </p>
       </div>
-      
-      <div class="flex items-start gap-6">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-          <span class="text-green-600 font-bold text-xl">2</span>
+
+      <!-- Card 2 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">2</span>
+          </div>
         </div>
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Comprehensive 6-Week Training Program</h3>
-          <p class="text-gray-600">Developed and delivered an intensive 6-week classroom training program covering IAM fundamentals, best practices, tools, and real-world implementation scenarios. The curriculum was designed to bridge theoretical knowledge with practical application.</p>
-        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">6-Week Training Program</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Developed and delivered an intensive 6-week classroom program covering IAM fundamentals, best practices, tools, and real-world implementation scenarios to bridge theory with practical application.
+        </p>
       </div>
-      
-      <div class="flex items-start gap-6">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-          <span class="text-green-600 font-bold text-xl">3</span>
+
+      <!-- Card 3 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">3</span>
+          </div>
         </div>
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Dual-Track Approach: Skilling & Reskilling</h3>
-          <p class="text-gray-600">Implemented a dual-track program catering to both fresh graduates (skilling) and working professionals (reskilling), enabling 85 participants to gain specialized expertise in Identity and Access Management and prepare for cybersecurity careers in government ministries.</p>
-        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">Dual-Track Skilling Approach</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Implemented a dual-track program for both fresh graduates (skilling) and working professionals (reskilling), enabling 85 participants to gain specialized IAM expertise for government ministry roles.
+        </p>
       </div>
-      
-      <div class="flex items-start gap-6">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-          <span class="text-green-600 font-bold text-xl">4</span>
+
+      <!-- Card 4 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">4</span>
+          </div>
         </div>
-        <div>
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Career Enablement & Certification</h3>
-          <p class="text-gray-600">Provided comprehensive career guidance and certification preparation, enabling participants to embark on successful careers in cybersecurity with specialized IAM skills aligned to government ministry requirements.</p>
-        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">Career Enablement & Certification</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Provided comprehensive career guidance and certification preparation, enabling participants to embark on successful cybersecurity careers with IAM skills aligned to government ministry requirements.
+        </p>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- Training Curriculum Section -->
-<section class="py-16 bg-gradient-to-br from-green-50 to-teal-50">
+<section class="py-8 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Training Curriculum</h2>
+    <h2 class="tagline-heading font-bold text-gray-900 mb-6 text-center">Training Curriculum</h2>
     <div class="grid md:grid-cols-3 gap-8">
       <div class="bg-white rounded-xl p-6 shadow-sm">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
           </svg>
         </div>
-        <h3 class="text-lg font-bold text-gray-900 mb-3">IAM Fundamentals</h3>
-        <ul class="text-sm text-gray-600 space-y-2">
+        <h3 class="tagline-base font-bold text-gray-900 mb-3">IAM Fundamentals</h3>
+        <ul class="tagline-small text-gray-600 space-y-2">
           <li>• Identity lifecycle management</li>
           <li>• Access control principles</li>
           <li>• Authentication & authorization</li>
           <li>• Privileged access management</li>
         </ul>
       </div>
-      
+
       <div class="bg-white rounded-xl p-6 shadow-sm">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
           </svg>
         </div>
-        <h3 class="text-lg font-bold text-gray-900 mb-3">Tools & Technologies</h3>
-        <ul class="text-sm text-gray-600 space-y-2">
+        <h3 class="tagline-base font-bold text-gray-900 mb-3">Tools & Technologies</h3>
+        <ul class="tagline-small text-gray-600 space-y-2">
           <li>• IAM platforms & solutions</li>
           <li>• Directory services (LDAP, AD)</li>
           <li>• SSO and MFA technologies</li>
           <li>• Governance & compliance tools</li>
         </ul>
       </div>
-      
+
       <div class="bg-white rounded-xl p-6 shadow-sm">
-        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
           </svg>
         </div>
-        <h3 class="text-lg font-bold text-gray-900 mb-3">Practical Applications</h3>
-        <ul class="text-sm text-gray-600 space-y-2">
+        <h3 class="tagline-base font-bold text-gray-900 mb-3">Practical Applications</h3>
+        <ul class="tagline-small text-gray-600 space-y-2">
           <li>• Real-world case studies</li>
           <li>• Hands-on lab exercises</li>
           <li>• Security policy development</li>
@@ -290,55 +285,70 @@
 </section>
 
 <!-- Results Section -->
-<section class="py-16 bg-white">
+<section class="py-8 bg-gradient-to-br from-orange-50 to-indigo-50">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Results & Impact</h2>
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
-      <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-8 text-center">
-        <div class="text-5xl font-bold text-green-600 mb-2">85</div>
-        <p class="text-gray-700 font-semibold">Participants Trained</p>
-        <p class="text-sm text-gray-600 mt-2">Fresh graduates & professionals</p>
+    <h2 class="tagline-heading font-bold text-gray-900 mb-6 text-center">Results & Impact</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <h3 class="tagline-heading font-bold text-orange-600 mb-1">85</h3>
+        <p class="tagline-small font-semibold text-gray-900">Participants Trained</p>
+        <p class="tagline-small text-gray-600">Fresh graduates & professionals</p>
       </div>
-      
-      <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-8 text-center">
-        <div class="text-5xl font-bold text-green-600 mb-2">6</div>
-        <p class="text-gray-700 font-semibold">Weeks of Training</p>
-        <p class="text-sm text-gray-600 mt-2">Intensive classroom program</p>
+
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="tagline-heading font-bold text-orange-600 mb-1">6</h3>
+        <p class="tagline-small font-semibold text-gray-900">Weeks of Training</p>
+        <p class="tagline-small text-gray-600">Intensive classroom program</p>
       </div>
-      
-      <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-8 text-center">
-        <div class="text-5xl font-bold text-green-600 mb-2">1st</div>
-        <p class="text-gray-700 font-semibold">National-Level Hub</p>
-        <p class="text-sm text-gray-600 mt-2">In Singhasari SEZ</p>
+
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+          </svg>
+        </div>
+        <h3 class="tagline-heading font-bold text-orange-600 mb-1">1st</h3>
+        <p class="tagline-small font-semibold text-gray-900">National-Level Hub</p>
+        <p class="tagline-small text-gray-600">In Singhasari SEZ</p>
       </div>
     </div>
-    
-    <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-xl p-8">
-      <h3 class="text-2xl font-bold text-gray-900 mb-6">Key Achievements</h3>
+
+    <div class="bg-white rounded-xl p-8 shadow-sm">
+      <h3 class="tagline-heading font-bold text-gray-900 mb-6">Key Achievements</h3>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="flex items-start">
-          <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <p class="text-gray-700">Successfully established Indonesia's first national-level cyber workforce skilling hub</p>
+          <p class="text-gray-700 tagline-small">Successfully established Indonesia's first national-level cyber workforce skilling hub</p>
         </div>
         <div class="flex items-start">
-          <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <p class="text-gray-700">Trained and certified 85 participants for specialized IAM roles in government ministries</p>
+          <p class="text-gray-700 tagline-small">Trained and certified 85 participants for specialized IAM roles in government ministries</p>
         </div>
         <div class="flex items-start">
-          <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <p class="text-gray-700">Significantly strengthened cybersecurity workforce readiness across government ministries</p>
+          <p class="text-gray-700 tagline-small">Significantly strengthened cybersecurity workforce readiness across government ministries</p>
         </div>
         <div class="flex items-start">
-          <svg class="w-6 h-6 text-green-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <p class="text-gray-700">Created a sustainable talent pipeline for Indonesia's national cybersecurity initiatives</p>
+          <p class="text-gray-700 tagline-small">Created a sustainable talent pipeline for Indonesia's national cybersecurity initiatives</p>
         </div>
       </div>
     </div>
@@ -346,15 +356,15 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-16 bg-gradient-to-r from-green-600 to-teal-700">
+<section class="py-8 bg-gradient-to-r from-orange-600 to-orange-700">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Build Your Cybersecurity Workforce</h2>
-    <p class="text-xl text-green-100 mb-8">Partner with us to develop comprehensive training programs that build cybersecurity excellence.</p>
+    <h2 class="tagline-heading font-bold text-white mb-4">Build Your Cybersecurity Workforce</h2>
+    <p class="tagline-base text-orange-100 mb-6">Partner with us to develop comprehensive training programs that build cybersecurity excellence.</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="../index.html#contact" class="bg-white text-green-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+      <a href="mailto:contact@diaas.in" class="bg-white text-orange-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
         Get in Touch
       </a>
-      <a href="../pages/case-studies.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-green-600 transition font-semibold">
+      <a href="../pages/case-studies.html" class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-orange-600 transition font-semibold">
         View More Case Studies
       </a>
     </div>
@@ -384,10 +394,10 @@
       <div>
         <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Services</h4>
         <ul class="space-y-2 sm:space-y-3">
-          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">IAM Solutions</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cybersecurity</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cloud Security</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Consulting</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm">IAM Solutions</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm">Cybersecurity</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm">Cloud Security</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm">Consulting</a></li>
         </ul>
       </div>
       <div>
@@ -409,7 +419,7 @@
     </div>
     <div class="border-t border-orange-700 my-4 sm:my-6 lg:my-8"></div>
     <div class="flex flex-col md:flex-row justify-between items-center text-white text-xs sm:text-sm">
-      <p>&copy; 2026 Diaas. All rights reserved.</p>
+      <p style="font-family: Times, serif;">&copy; 2026 Diaas. All rights reserved.</p>
       <div class="flex flex-wrap justify-center gap-3 sm:gap-6 mt-3 md:mt-0">
         <a href="../pages/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
         <a href="../pages/terms-of-service.html" class="hover:text-white transition">Terms of Service</a>

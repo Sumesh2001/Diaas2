@@ -25,19 +25,6 @@
         </ul>
       </div>
       <div class="hidden md:flex items-center space-x-3">
-        <div id="searchBar" class="hidden flex items-center bg-gray-100 rounded-full px-4 py-2 w-64">
-          <input type="text" id="searchInput" placeholder="Search in page..." class="bg-transparent outline-none w-full text-gray-700" onkeypress="performSearch(event)">
-          <button onclick="closeSearch()" class="text-gray-500 hover:text-gray-700 ml-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-          </button>
-        </div>
-        <button onclick="toggleSearch()" class="text-gray-700 hover:text-orange-600 transition p-2 hover:bg-gray-100 rounded-full">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
-          </svg>
-        </button>
         <a href="../index.html#contact" class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold">
           Contact us
         </a>
@@ -48,7 +35,7 @@
         </svg>
       </button>
     </div>
-    
+
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
       <ul class="space-y-3 mb-4">
@@ -57,19 +44,11 @@
         <li><a href="../pages/case-studies.html" class="text-gray-700 hover:text-orange-600 transition block">Case Studies</a></li>
         <li><a href="../pages/careers.html" class="text-gray-700 hover:text-orange-600 transition block">Working at diaas</a></li>
       </ul>
-      <!-- <div class="flex items-center gap-3">
-        <input type="text" id="mobileSearchInput" placeholder="Search in page..." class="flex-1 bg-gray-100 border-none rounded-lg px-4 py-2 outline-none focus:ring-2 focus:ring-orange-500">
-        <button onclick="performMobileSearch()" class="bg-gray-100 p-2 rounded-lg hover:bg-gray-200 transition">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 text-gray-700">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 9.75 17.25a7.5 7.5 0 0 0 6.9-4.6z" />
-          </svg>
-        </button>
-      </div> -->
       <a href="../index.html#contact" class="block mt-4 w-full bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition font-semibold text-center">
         Contact us
       </a>
     </div>
-    
+
     <!-- Search Results Dropdown -->
     <div id="searchResults" class="hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-200 shadow-lg max-h-96 overflow-y-auto">
       <div class="max-w-7xl mx-auto px-6 py-4"></div>
@@ -78,7 +57,7 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="pt-32 pb-16 bg-gradient-to-br from-orange-50 to-red-100">
+<section class="pt-20 pb-8 bg-gradient-to-br from-orange-50 to-orange-100">
   <div class="max-w-7xl mx-auto px-6">
     <div class="max-w-4xl">
       <a href="../pages/case-studies.html" class="inline-flex items-center text-orange-600 hover:text-orange-800 mb-6 font-semibold">
@@ -87,26 +66,25 @@
         </svg>
         Back to Case Studies
       </a>
-      <span class="inline-block px-4 py-2 bg-orange-100 text-orange-700 rounded-full text-sm font-semibold mb-4">Banking & Financial Services</span>
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">IGA Solution Modernization to SaaS</h1>
-      <p class="text-xl text-gray-600 mb-8">Migrating from on-premises IdentityIQ to SailPoint Identity Security Cloud for enhanced scalability and operational efficiency</p>
-      
+      <h1 class="tagline-heading font-bold text-gray-900 mb-6">IGA Solution Modernization to SaaS</h1>
+      <p class="tagline-base text-gray-600 mb-8">Migrating from on-premises IdentityIQ to SailPoint Identity Security Cloud for enhanced scalability and operational efficiency.</p>
+
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div>
           <p class="text-sm text-gray-500 mb-1">Client</p>
-          <p class="font-bold text-gray-900">Financial Services</p>
+          <p class="font-bold text-gray-900 tagline-small">Financial Services</p>
         </div>
         <div>
           <p class="text-sm text-gray-500 mb-1">Location</p>
-          <p class="font-bold text-gray-900">USA</p>
+          <p class="font-bold text-gray-900 tagline-small">USA</p>
         </div>
         <div>
           <p class="text-sm text-gray-500 mb-1">Migration</p>
-          <p class="font-bold text-gray-900">IIQ to ISC</p>
+          <p class="font-bold text-gray-900 tagline-small">IIQ to ISC</p>
         </div>
         <div>
           <p class="text-sm text-gray-500 mb-1">Phases</p>
-          <p class="font-bold text-gray-900">5-Phase Approach</p>
+          <p class="font-bold text-gray-900 tagline-small">5-Phase Approach</p>
         </div>
       </div>
     </div>
@@ -114,27 +92,27 @@
 </section>
 
 <!-- Overview Section -->
-<section class="py-16 bg-white">
+<section class="py-8 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid md:grid-cols-2 gap-12">
       <div>
-        <h2 class="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
-        <p class="text-gray-600 mb-4">
+        <h2 class="tagline-heading font-bold text-gray-900 mb-6">Overview</h2>
+        <p class="text-gray-600 mb-2 tagline-small">
           A leading financial services organization in the USA embarked on a strategic initiative to modernize its Identity Governance and Administration (IGA) infrastructure. The goal was to migrate from an on-premises SailPoint IdentityIQ (IIQ) deployment to the cloud-based SailPoint Identity Security Cloud (ISC) SaaS platform.
         </p>
-        <p class="text-gray-600">
+        <p class="text-gray-600 tagline-small">
           This transformation aimed to improve scalability, reduce operational overhead, enhance compliance capabilities, and leverage the latest identity security features available in the SaaS model.
         </p>
       </div>
-      
-      <div class="bg-gradient-to-br from-orange-50 to-red-50 rounded-xl p-8">
-        <h3 class="text-xl font-bold text-gray-900 mb-6">Migration Highlights</h3>
-        <div class="space-y-4">
+
+      <div class="bg-gradient-to-br from-orange-50 to-orange-50 rounded-xl p-8">
+        <h3 class="tagline-base font-bold text-gray-900 mb-6">Migration Highlights</h3>
+        <div class="space-y-4 tagline-small">
           <div class="flex items-start">
             <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
-            <p class="text-gray-700">Full feature migration from IIQ to ISC</p>
+            <p class="text-gray-700 tagline-small">Full feature migration from IIQ to ISC</p>
           </div>
           <div class="flex items-start">
             <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,167 +139,183 @@
 </section>
 
 <!-- Challenges Section -->
-<section class="py-16 bg-gray-50">
+<section class="py-8 bg-gray-50">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Challenges</h2>
+    <h2 class="tagline-heading font-bold text-gray-900 mb-6 text-center">Challenges</h2>
     <div class="grid md:grid-cols-3 gap-8">
       <div class="bg-white rounded-xl p-8 shadow-sm">
-        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Complex Multi-Phase Migration</h3>
-        <p class="text-gray-600">Migration involved multiple phases with intricate configurations, requiring careful planning and execution to minimize disruption.</p>
+        <h3 class="tagline-base font-bold text-gray-900 mb-3">Complex Multi-Phase Migration</h3>
+        <p class="tagline-small text-gray-600">Migration involved multiple phases with intricate configurations, requiring careful planning and execution to minimize disruption.</p>
       </div>
-      
+
       <div class="bg-white rounded-xl p-8 shadow-sm">
-        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Customization Reverse Engineering</h3>
-        <p class="text-gray-600">Existing IIQ customizations required thorough reverse engineering and accurate mapping to ISC's different architecture and capabilities.</p>
+        <h3 class="tagline-base font-bold text-gray-900 mb-3">Customization Reverse Engineering</h3>
+        <p class="tagline-small text-gray-600">Existing IIQ customizations required thorough reverse engineering and accurate mapping to ISC's different architecture and capabilities.</p>
       </div>
-      
+
       <div class="bg-white rounded-xl p-8 shadow-sm">
-        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-          <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+          <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Integration & JML Processes</h3>
-        <p class="text-gray-600">Integrating birthright provisioning, application connectivity, and Joiner-Mover-Leaver (JML) processes while maintaining compliance requirements.</p>
+        <h3 class="tagline-base font-bold text-gray-900 mb-3">Integration & JML Processes</h3>
+        <p class="tagline-small text-gray-600">Integrating birthright provisioning, application connectivity, and Joiner-Mover-Leaver (JML) processes while maintaining compliance requirements.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Solution Section -->
-<section class="py-16 bg-white">
+<section class="py-6 bg-white">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Our Solution</h2>
-    
-    <div class="mb-16">
-      <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">5-Phase Migration Approach</h3>
-      <div class="space-y-6">
-        <div class="flex items-start gap-6">
-          <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-            <span class="text-orange-600 font-bold text-2xl">1</span>
-          </div>
-          <div class="flex-1">
-            <h4 class="text-lg font-bold text-gray-900 mb-2">Phase 1: Base Configuration</h4>
-            <p class="text-gray-600">Configured ISC tenant based on customer requirements, established initial architecture, and set up foundational elements including authentication, authorization, and governance frameworks.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-6">
-          <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-            <span class="text-orange-600 font-bold text-2xl">2</span>
-          </div>
-          <div class="flex-1">
-            <h4 class="text-lg font-bold text-gray-900 mb-2">Phase 2: Customization Documentation</h4>
-            <p class="text-gray-600">Thoroughly documented all existing IIQ customizations, reverse-engineered custom workflows, rules, and integrations to ensure accurate migration mapping.</p>
+    <div class="text-center mb-6">
+      <h2 class="tagline-heading font-bold text-gray-900">Our Solution</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Card 1 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">1</span>
           </div>
         </div>
-        
-        <div class="flex items-start gap-6">
-          <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-            <span class="text-orange-600 font-bold text-2xl">3</span>
-          </div>
-          <div class="flex-1">
-            <h4 class="text-lg font-bold text-gray-900 mb-2">Phase 3: Connectivity & Integration</h4>
-            <p class="text-gray-600">Established application connectivity, integrated birthright provisioning mechanisms, and configured JML (Joiner-Mover-Leaver) processes for automated lifecycle management.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-6">
-          <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-            <span class="text-orange-600 font-bold text-2xl">4</span>
-          </div>
-          <div class="flex-1">
-            <h4 class="text-lg font-bold text-gray-900 mb-2">Phase 4: Iterative App Onboarding</h4>
-            <p class="text-gray-600">Executed iterative application onboarding process, migrating applications in controlled batches with thorough testing and validation at each stage.</p>
-          </div>
-        </div>
-        
-        <div class="flex items-start gap-6">
-          <div class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-            <span class="text-orange-600 font-bold text-2xl">5</span>
-          </div>
-          <div class="flex-1">
-            <h4 class="text-lg font-bold text-gray-900 mb-2">Phase 5: Validation & Cutover</h4>
-            <p class="text-gray-600">Comprehensive validation testing, user acceptance testing (UAT), training, and final cutover from IIQ to ISC with minimal disruption to business operations.</p>
-          </div>
-        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">Base Configuration</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Configured ISC tenant based on customer requirements, established initial architecture, and set up foundational elements including authentication, authorization, and governance frameworks.
+        </p>
       </div>
+
+      <!-- Card 2 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">2</span>
+          </div>
+        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">Customization Documentation</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Thoroughly documented all existing IIQ customizations, reverse-engineered custom workflows, rules, and integrations to ensure accurate migration mapping.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">3</span>
+          </div>
+        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">Connectivity & Integration</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Established application connectivity, integrated birthright provisioning mechanisms, and configured JML (Joiner-Mover-Leaver) processes for automated lifecycle management.
+        </p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">4</span>
+          </div>
+        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">Iterative App Onboarding</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Executed iterative application onboarding process, migrating applications in controlled batches with thorough testing and validation at each stage.
+        </p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 transition duration-300">
+        <div class="flex items-center justify-between mb-4">
+          <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+            <span class="text-orange-600 font-bold">5</span>
+          </div>
+        </div>
+        <h3 class="tagline-base font-semibold text-gray-900 mb-2">Validation & Cutover</h3>
+        <p class="tagline-small text-gray-600 leading-relaxed">
+          Comprehensive validation testing, user acceptance testing (UAT), training, and final cutover from IIQ to ISC with minimal disruption to business operations.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- Results Section -->
-<section class="py-16 bg-gradient-to-br from-orange-50 to-red-50">
+<section class="py-8 bg-gradient-to-br from-orange-50 to-indigo-50">
   <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Results & Impact</h2>
-    <div class="grid md:grid-cols-3 gap-8 mb-12">
-      <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <h2 class="tagline-heading font-bold text-gray-900 mb-6 text-center">Results & Impact</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
           </svg>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-2">Seamless</h3>
-        <p class="text-gray-600">SaaS Transition</p>
+        <h3 class="tagline-base font-bold text-gray-900 mb-2">Seamless</h3>
+        <p class="tagline-small text-gray-600">SaaS Transition</p>
       </div>
-      
-      <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
           </svg>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-2">Enhanced</h3>
-        <p class="text-gray-600">Operational Efficiency</p>
+        <h3 class="tagline-base font-bold text-gray-900 mb-2">Enhanced</h3>
+        <p class="tagline-small text-gray-600">Operational Efficiency</p>
       </div>
-      
-      <div class="bg-white rounded-xl p-8 shadow-sm text-center">
-        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+      <div class="bg-white rounded-xl p-6 shadow-sm text-center">
+        <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
           </svg>
         </div>
-        <h3 class="text-2xl font-bold text-gray-900 mb-2">Improved</h3>
-        <p class="text-gray-600">Scalability</p>
+        <h3 class="tagline-base font-bold text-gray-900 mb-2">Improved</h3>
+        <p class="tagline-small text-gray-600">Scalability</p>
       </div>
     </div>
-    
+
     <div class="bg-white rounded-xl p-8 shadow-sm">
-      <h3 class="text-2xl font-bold text-gray-900 mb-6">Key Achievements</h3>
+      <h3 class="tagline-heading font-bold text-gray-900 mb-6">Key Achievements</h3>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="flex items-start">
           <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <p class="text-gray-700">Successful transition from on-premises IIQ to cloud-based ISC SaaS platform</p>
+          <p class="text-gray-700 tagline-small">Successful transition from on-premises IIQ to cloud-based ISC SaaS platform</p>
         </div>
         <div class="flex items-start">
           <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <p class="text-gray-700">Significantly enhanced operational efficiency and reduced infrastructure overhead</p>
+          <p class="text-gray-700 tagline-small">Significantly enhanced operational efficiency and reduced infrastructure overhead</p>
         </div>
         <div class="flex items-start">
           <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <p class="text-gray-700">Improved compliance posture with enhanced governance capabilities</p>
+          <p class="text-gray-700 tagline-small">Improved compliance posture with enhanced governance capabilities</p>
         </div>
         <div class="flex items-start">
           <svg class="w-6 h-6 text-orange-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
           </svg>
-          <p class="text-gray-700">Established scalable platform ready for future growth and modernization</p>
+          <p class="text-gray-700 tagline-small">Established scalable platform ready for future growth and modernization</p>
         </div>
       </div>
     </div>
@@ -329,15 +323,15 @@
 </section>
 
 <!-- CTA Section -->
-<section class="py-16 bg-gradient-to-r from-orange-600 to-red-700">
+<section class="py-8 bg-gradient-to-r from-orange-600 to-orange-700">
   <div class="max-w-4xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Modernize Your IGA Solution?</h2>
-    <p class="text-xl text-orange-100 mb-8">Let's discuss how we can help migrate your identity governance to the cloud with minimal disruption.</p>
+    <h2 class="tagline-heading font-bold text-white mb-4">Ready to Modernize Your IGA Solution?</h2>
+    <p class="tagline-base text-orange-100 mb-6">Let's discuss how we can help migrate your identity governance to the cloud with minimal disruption.</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="../index.html#contact" class="bg-white text-orange-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
+      <a href="mailto:contact@diaas.in" class="bg-white text-orange-600 px-8 py-3 rounded-lg hover:bg-gray-100 transition font-semibold">
         Get in Touch
       </a>
-      <a href="../pages/case-studies.html" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-orange-600 transition font-semibold">
+      <a href="../pages/case-studies.html" class="border-2 border-white text-white px-8 py-3 rounded-lg hover:bg-white hover:text-orange-600 transition font-semibold">
         View More Case Studies
       </a>
     </div>
@@ -367,10 +361,10 @@
       <div>
         <h4 class="text-base sm:text-lg font-bold mb-4 sm:mb-6 text-white">Services</h4>
         <ul class="space-y-2 sm:space-y-3">
-          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">IAM Solutions</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cybersecurity</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Cloud Security</a></li>
-          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm sm:text-base">Consulting</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm">IAM Solutions</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm">Cybersecurity</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm">Cloud Security</a></li>
+          <li><a href="#" class="text-gray-300 hover:text-white transition text-sm">Consulting</a></li>
         </ul>
       </div>
       <div>
@@ -381,7 +375,7 @@
             <a href="mailto:contact@diaas.in" class="hover:text-white transition">contact[at]diaas.in</a>
           </p>
           <div id="socialIcons" class="flex flex-row items-center gap-3 sm:gap-4">
-            <a href="https://www.linkedin.com/company/diaas/" target="_blank" class="text-gray-300 hover:text-white transition inline-block" title="LinkedIn">
+            <a href="https://www.linkedin.com/company/diaas/" target="_blank" class="text-orange-600 hover:text-white transition inline-block" title="LinkedIn">
               <svg class="w-6 h-6 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.469v6.766z"/>
               </svg>
@@ -392,7 +386,7 @@
     </div>
     <div class="border-t border-orange-700 my-4 sm:my-6 lg:my-8"></div>
     <div class="flex flex-col md:flex-row justify-between items-center text-white text-xs sm:text-sm">
-      <p>&copy; 2026 Diaas. All rights reserved.</p>
+      <p style="font-family: Times, serif;">&copy; 2026 Diaas. All rights reserved.</p>
       <div class="flex flex-wrap justify-center gap-3 sm:gap-6 mt-3 md:mt-0">
         <a href="../pages/privacy-policy.html" class="hover:text-white transition">Privacy Policy</a>
         <a href="../pages/terms-of-service.html" class="hover:text-white transition">Terms of Service</a>

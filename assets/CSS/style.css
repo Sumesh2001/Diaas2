@@ -1002,3 +1002,9 @@ footer h4::before {
       border-bottom: 2px solid var(--color-primary-600);
       min-width: 20px;
     }
+
+    .ethics-item{
+  height:56px;
+  display:flex;
+  align-items:center;
+}
